@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">书来书往</string>
+    <string name="st_one">账号/手机号</string>
+    <string name="st_two">密码</string>
+
+
+    <drawable name="clr_normal">#00000000</drawable>
+    <drawable name="clr_pressed">#C0C0C0</drawable>
+
+</resources>

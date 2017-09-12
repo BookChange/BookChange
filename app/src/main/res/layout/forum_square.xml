@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:id="@+id/top"
+        android:layout_width="fill_parent"
+        android:layout_height="50dp"
+        android:layout_alignParentTop="true"
+        android:paddingLeft="10dp"
+        android:background="@android:color/white">
+
+        <Button
+            android:id="@+id/btnSearch"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:layout_centerVertical="true"
+            android:layout_alignParentRight="true"
+            android:textSize="13sp"
+            android:textStyle="bold"
+            android:background="@drawable/button_login_selector"
+            android:text="搜索"/>
+
+        <RelativeLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:gravity="center_vertical"
+            android:layout_toLeftOf="@+id/btnSearch">
+
+            <EditText
+                android:id="@+id/etSearch"
+                android:layout_width="fill_parent"
+                android:layout_height="30dp"
+                android:singleLine="true"
+                android:background="@drawable/login_input"
+                android:layout_marginLeft="15dip"
+                android:paddingLeft="15dp"
+                android:textSize="15sp"
+                android:hint="请输入文字..."/>
+
+        </RelativeLayout>
+
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/menu"
+        android:layout_width="fill_parent"
+        android:layout_height="match_parent"
+        android:background="@android:color/white">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <View
+                android:layout_width="fill_parent"
+                android:layout_height="1.0px"
+                android:layout_marginLeft="1.0px"
+                android:layout_marginRight="1.0px"
+                android:background="#ffc0c3c4" />
+
+            <Button
+                android:id="@+id/offlint_meet"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/button_login_selector"
+                android:text="读书感想                                                >  "
+                android:textSize="19dp"/>
+
+            <View
+                android:layout_width="fill_parent"
+                android:layout_height="1.0px"
+                android:layout_marginLeft="1.0px"
+                android:layout_marginRight="1.0px"
+                android:layout_below="@+id/offlint_meet"
+                android:background="#ffc0c3c4" />
+            <Button
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/button_login_selector"
+                android:text="组织线下交流会                                    >  "
+                android:textSize="19dp"/>
+            <View
+                android:layout_width="fill_parent"
+                android:layout_height="1.0px"
+                android:layout_marginLeft="1.0px"
+                android:layout_marginRight="1.0px"
+                android:layout_below="@+id/offlint_meet"
+                android:background="#ffc0c3c4" />
+        </LinearLayout>
+
+        <RelativeLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:layout_alignParentBottom="true">
+
+            <View
+                android:layout_width="fill_parent"
+                android:layout_height="1.0px"
+                android:layout_marginLeft="1.0px"
+                android:layout_marginRight="1.0px"
+                android:background="#ffc0c3c4" />
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentTop="true"
+                android:paddingTop="15dip"
+                android:paddingBottom="15dip"
+                android:gravity="center" >
+
+                <ImageView
+                    android:id="@+id/tab1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:src="@drawable/tab1" />
+
+                <ImageView
+                    android:id="@+id/tab2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:src="@drawable/tab2" />
+
+                <ImageView
+                    android:id="@+id/tab3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:src="@drawable/tab3" />
+            </LinearLayout>
+
+        </RelativeLayout>
+
+    </RelativeLayout>
+
+</LinearLayout>

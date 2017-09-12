@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:background="#3F51B5">
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:background="@android:color/transparent"
+            android:text="返回"
+            android:textColor="@drawable/button_head_back"
+            android:textSize="15sp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="设置"
+            android:layout_marginLeft="75dip"
+            android:layout_gravity="center_vertical"
+            android:textColor="#FFFFFF"
+            android:textSize="17sp"/>
+    </LinearLayout>
+
+     <LinearLayout
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:layout_weight="1"
+         android:orientation="vertical">
+
+         <TextView
+             android:layout_width="match_parent"
+             android:layout_height="20dp" />
+
+         <View
+             android:layout_width="fill_parent"
+             android:layout_height="1.0px"
+             android:layout_marginLeft="1.0px"
+             android:layout_marginRight="1.0px"
+             android:background="#ffc0c3c4" />
+         <Switch
+             android:id="@+id/share_location"
+             android:layout_width="fill_parent"
+             android:layout_height="wrap_content"
+             android:background="@android:color/white"
+             android:paddingTop="12dip"
+             android:paddingBottom="12dip"
+             android:paddingRight="40dp"
+             android:paddingLeft="10dip"
+             android:text="共享地理位置"
+             android:textSize="19dp" />
+         <View
+             android:layout_width="fill_parent"
+             android:layout_height="1.0px"
+             android:layout_marginLeft="1.0px"
+             android:layout_marginRight="1.0px"
+             android:background="#ffc0c3c4" />
+
+         <TextView
+             android:layout_width="match_parent"
+             android:layout_height="10dp" />
+
+         <View
+             android:layout_width="fill_parent"
+             android:layout_height="1.0px"
+             android:layout_marginLeft="1.0px"
+             android:layout_marginRight="1.0px"
+             android:background="#ffc0c3c4" />
+         <Switch
+             android:id="@+id/nearby_visible"
+             android:layout_width="fill_parent"
+             android:layout_height="wrap_content"
+             android:background="@android:color/white"
+             android:paddingTop="12dip"
+             android:paddingBottom="12dip"
+             android:paddingRight="40dp"
+             android:paddingLeft="10dip"
+             android:text="对附近的人可见"
+             android:textSize="19dp" />
+         <View
+             android:layout_width="fill_parent"
+             android:layout_height="1.0px"
+             android:layout_marginLeft="1.0px"
+             android:layout_marginRight="1.0px"
+             android:background="#ffc0c3c4" />
+
+
+         <TextView
+             android:layout_width="match_parent"
+             android:layout_height="20dp" />
+         <View
+             android:layout_width="fill_parent"
+             android:layout_height="1.0px"
+             android:layout_marginLeft="1.0px"
+             android:layout_marginRight="1.0px"
+             android:background="#ffc0c3c4" />
+         <RelativeLayout
+             android:layout_width="fill_parent"
+             android:layout_height="wrap_content"
+             android:background="@android:color/white">
+
+             <TextView
+                 android:id="@+id/copy_account_security"
+                 android:layout_width="wrap_content"
+                 android:layout_height="wrap_content"
+                 android:layout_alignParentLeft="true"
+                 android:layout_marginLeft="10.0dp"
+                 android:paddingBottom="8dip"
+                 android:paddingTop="8dip"
+                 android:text="账号安全"
+                 android:textColor="@android:color/black"
+                 android:textSize="19dp" />
+
+             <Button
+                 android:id="@+id/account_security"
+                 android:layout_width="fill_parent"
+                 android:layout_height="wrap_content"
+                 android:layout_toRightOf="@+id/copy_account_security"
+                 android:background="@drawable/button_login_selector"
+                 android:paddingBottom="8dip"
+                 android:text="                                     >"
+                 android:textColor="#ffc0c3c4"
+                 android:textSize="19dp" />
+         </RelativeLayout>
+         <View
+             android:layout_width="fill_parent"
+             android:layout_height="1.0px"
+             android:layout_marginLeft="1.0px"
+             android:layout_marginRight="1.0px"
+             android:background="#ffc0c3c4" />
+
+         <TextView
+             android:layout_width="match_parent"
+             android:layout_height="30dp" />
+
+         <View
+             android:layout_width="fill_parent"
+             android:layout_height="1.0px"
+             android:layout_marginLeft="1.0px"
+             android:layout_marginRight="1.0px"
+             android:background="#ffc0c3c4" />
+         <RelativeLayout
+             android:layout_width="fill_parent"
+             android:layout_height="wrap_content"
+             android:background="@android:color/white">
+
+             <TextView
+                 android:id="@+id/copy_wipe_cache"
+                 android:layout_width="wrap_content"
+                 android:layout_height="wrap_content"
+                 android:layout_alignParentLeft="true"
+                 android:layout_marginLeft="10.0dp"
+                 android:paddingBottom="8dip"
+                 android:paddingTop="8dip"
+                 android:text="清空缓存"
+                 android:textColor="@android:color/black"
+                 android:textSize="19dp" />
+
+             <Button
+                 android:id="@+id/wipe_cache"
+                 android:layout_width="fill_parent"
+                 android:layout_height="wrap_content"
+                 android:layout_toRightOf="@+id/copy_wipe_cache"
+                 android:background="@drawable/button_login_selector"
+                 android:paddingBottom="8dip"
+                 android:text="                                     >"
+                 android:textColor="#ffc0c3c4"
+                 android:textSize="19dp" />
+         </RelativeLayout>
+         <View
+             android:layout_width="fill_parent"
+             android:layout_height="1.0px"
+             android:layout_marginLeft="1.0px"
+             android:layout_marginRight="1.0px"
+             android:background="#ffc0c3c4" />
+
+
+     </LinearLayout>
+
+</LinearLayout>

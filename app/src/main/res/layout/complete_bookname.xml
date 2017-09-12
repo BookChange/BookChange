@@ -1,0 +1,272 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:background="#3F51B5">
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:background="@android:color/transparent"
+            android:text="返回"
+            android:textColor="@drawable/button_head_back"
+            android:textSize="15sp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="书名完善"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="70dip"
+            android:textColor="#FFFFFF"
+            android:textSize="17sp"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="26dp" />
+
+        <View
+            android:layout_width="fill_parent"
+            android:layout_height="1.0px"
+            android:layout_marginLeft="1.0px"
+            android:layout_marginRight="1.0px"
+            android:background="#ffc0c3c4" />
+        <RelativeLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:background="@android:color/white"
+            android:paddingTop="8dip">
+
+            <TextView
+                android:id="@+id/copy_book_count"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_marginLeft="10.0dp"
+                android:paddingBottom="8dip"
+                android:paddingTop="5dip"
+                android:text="我的图书数量"
+                android:textColor="@android:color/black"
+                android:textSize="19sp" />
+
+            <EditText
+                android:id="@+id/book_count"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_toRightOf="@+id/copy_book_count"
+                android:layout_marginLeft="20dp"
+                android:background="@null"
+                android:hint="册/本"
+                android:digits="0123456789"
+                android:inputType="number"
+                android:paddingTop="5dip" />
+        </RelativeLayout>
+        <View
+            android:layout_width="fill_parent"
+            android:layout_height="1.0px"
+            android:layout_marginLeft="1.0px"
+            android:layout_marginRight="1.0px"
+            android:background="#ffc0c3c4" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="15dp" />
+
+        <View
+            android:layout_width="fill_parent"
+            android:layout_height="1.0px"
+            android:layout_marginLeft="1.0px"
+            android:layout_marginRight="1.0px"
+            android:background="#ffc0c3c4" />
+        <RelativeLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:background="@android:color/white">
+
+            <TextView
+                android:id="@+id/copy_book_type"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_marginLeft="10.0dp"
+                android:paddingTop="13dip"
+                android:text="我的图书种类"
+                android:textColor="@android:color/black"
+                android:textSize="19sp" />
+
+            <Button
+                android:id="@+id/book_type"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_toRightOf="@+id/copy_book_type"
+                android:background="@drawable/button_login_selector"
+                android:text="请选择您的图书种类     >"
+                android:textColor="#ffc0c3c4"
+                android:textSize="15sp" />
+        </RelativeLayout>
+        <View
+            android:layout_width="fill_parent"
+            android:layout_height="1.0px"
+            android:layout_marginLeft="1.0px"
+            android:layout_marginRight="1.0px"
+            android:background="#ffc0c3c4" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="20dp" />
+
+        <View
+            android:layout_width="fill_parent"
+            android:layout_height="1.0px"
+            android:layout_marginLeft="1.0px"
+            android:layout_marginRight="1.0px"
+            android:background="#ffc0c3c4" />
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="300dip"
+            android:background="@android:color/white"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="7.0dp"
+                android:paddingBottom="8dip"
+                android:paddingTop="8dip"
+                android:text="我最喜欢的10本图书："
+                android:textColor="@android:color/black"
+                android:textSize="19dp" />
+
+            <RelativeLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:paddingTop="8dip"
+                android:background="@android:color/white">
+
+
+                <EditText
+                    android:id="@+id/bookname_edit1"
+                    android:layout_width="150dip"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="25dip"
+                    android:inputType="text"
+                    android:imeOptions="actionNext" />
+
+                <EditText
+                    android:id="@+id/bookname_edit2"
+                    android:layout_width="150dip"
+                    android:layout_height="wrap_content"
+                    android:inputType="text"
+                    android:imeOptions="actionNext"
+                    android:layout_alignParentTop="true"
+                    android:layout_alignLeft="@+id/bookname_edit4"
+                    android:layout_alignStart="@+id/bookname_edit4" />
+
+                <EditText
+                    android:id="@+id/bookname_edit3"
+                    android:layout_width="150dip"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/bookname_edit1"
+                    android:layout_marginLeft="25dip"
+                    android:inputType="text"
+                    android:imeOptions="actionNext"/>
+
+                <EditText
+                    android:id="@+id/bookname_edit4"
+                    android:layout_width="150dip"
+                    android:layout_height="wrap_content"
+                    android:inputType="text"
+                    android:imeOptions="actionNext"
+                    android:layout_below="@+id/bookname_edit2"
+                    android:layout_alignLeft="@+id/bookname_edit6"
+                    android:layout_alignStart="@+id/bookname_edit6" />
+
+
+                <EditText
+                    android:id="@+id/bookname_edit5"
+                    android:layout_width="150dip"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="25dip"
+                    android:layout_below="@+id/bookname_edit3"
+                    android:inputType="text"
+                    android:imeOptions="actionNext"/>
+
+                <EditText
+                    android:id="@+id/bookname_edit6"
+                    android:layout_width="150dip"
+                    android:layout_height="wrap_content"
+                    android:layout_alignTop="@+id/bookname_edit5"
+                    android:layout_toRightOf="@+id/bookname_edit5"
+                    android:layout_marginLeft="25dip"
+                    android:inputType="text"
+                    android:imeOptions="actionNext"/>
+
+                <EditText
+                    android:id="@+id/bookname_edit7"
+                    android:layout_width="150dip"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="25dip"
+                    android:layout_below="@+id/bookname_edit5"
+                    android:inputType="text"
+                    android:imeOptions="actionNext"/>
+
+                <EditText
+                    android:id="@+id/bookname_edit8"
+                    android:layout_width="150dip"
+                    android:layout_height="wrap_content"
+                    android:layout_alignTop="@+id/bookname_edit7"
+                    android:layout_toRightOf="@+id/bookname_edit7"
+                    android:layout_marginLeft="25dip"
+                    android:inputType="text"
+                    android:imeOptions="actionNext"
+                    android:layout_above="@+id/bookname_edit10" />
+
+                <EditText
+                    android:id="@+id/bookname_edit9"
+                    android:layout_width="150dip"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="25dip"
+                    android:layout_below="@+id/bookname_edit7"
+                    android:inputType="text"
+                    android:imeOptions="actionNext"/>
+
+                <EditText
+                    android:id="@+id/bookname_edit10"
+                    android:layout_width="150dip"
+                    android:layout_height="wrap_content"
+                    android:layout_alignTop="@+id/bookname_edit9"
+                    android:layout_toRightOf="@+id/bookname_edit9"
+                    android:layout_marginLeft="25dip"
+                    android:inputType="text" />
+
+
+            </RelativeLayout>
+
+        </LinearLayout>
+        <View
+            android:layout_width="fill_parent"
+            android:layout_height="1.0px"
+            android:layout_marginLeft="1.0px"
+            android:layout_marginRight="1.0px"
+            android:background="#ffc0c3c4" />
+
+
+    </LinearLayout>
+
+</LinearLayout>

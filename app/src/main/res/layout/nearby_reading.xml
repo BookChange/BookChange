@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:background="#3F51B5"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="附近的人在读"
+            android:layout_marginTop="8dip"
+            android:layout_gravity="center_horizontal"
+            android:textColor="#FFFFFF"
+            android:textSize="17sp"/>
+    </LinearLayout>
+
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:background="@android:color/white"
+        android:paddingTop="8dip"
+        android:orientation="vertical">
+
+        <ImageButton
+            android:id="@+id/nearby_reading_imagebuttom"
+            android:layout_width="80dip"
+            android:layout_height="80dip"
+            android:layout_weight="1.0"
+            android:background="@android:color/darker_gray"
+            android:layout_marginLeft="50dip"
+            android:layout_marginTop="50dip"/>
+
+        <ImageButton
+            android:id="@+id/nearby_reading_imagebuttom2"
+            android:layout_width="80dip"
+            android:layout_height="80dip"
+            android:layout_weight="1.0"
+            android:background="@android:color/darker_gray"
+            android:layout_toRightOf="@+id/nearby_reading_imagebuttom"
+            android:layout_below="@+id/nearby_reading_imagebuttom"
+            android:layout_marginLeft="90dip"/>
+
+        <ImageButton
+            android:id="@+id/nearby_reading_imagebuttom3"
+            android:layout_width="80dip"
+            android:layout_height="80dip"
+            android:layout_weight="1.0"
+            android:background="@android:color/darker_gray"
+            android:layout_below="@+id/nearby_reading_imagebuttom"
+            android:layout_alignLeft="@+id/nearby_reading_imagebuttom"
+            android:layout_marginLeft="30dip"
+            android:layout_marginTop="100dip"/>
+
+        <ImageButton
+            android:id="@+id/nearby_reading_imagebuttom4"
+            android:layout_width="80dip"
+            android:layout_height="80dip"
+            android:layout_weight="1.0"
+            android:background="@android:color/darker_gray"
+            android:layout_below="@+id/nearby_reading_imagebuttom2"
+            android:layout_alignLeft="@+id/nearby_reading_imagebuttom2"
+            android:layout_marginLeft="30dip"
+            android:layout_marginTop="100dip"/>
+
+        <RelativeLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:layout_alignParentBottom="true">
+
+            <View
+                android:layout_width="fill_parent"
+                android:layout_height="1.0px"
+                android:layout_marginLeft="1.0px"
+                android:layout_marginRight="1.0px"
+                android:background="#ffc0c3c4" />
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentTop="true"
+                android:paddingTop="15dip"
+                android:paddingBottom="15dip"
+                android:gravity="center" >
+
+                <ImageView
+                    android:id="@+id/tab1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:src="@drawable/tab1" />
+
+                <ImageView
+                    android:id="@+id/tab2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:src="@drawable/tab2" />
+
+                <ImageView
+                    android:id="@+id/tab3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:src="@drawable/tab3" />
+            </LinearLayout>
+
+        </RelativeLayout>
+
+
+    </RelativeLayout>
+
+
+</LinearLayout>
