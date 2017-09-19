@@ -12,17 +12,17 @@
 
         <TextView
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="附近的人在读"
-            android:layout_marginTop="8dip"
+            android:layout_height="fill_parent"
             android:layout_gravity="center_horizontal"
+            android:gravity="center"
+            android:text="附近的人在读"
             android:textColor="#FFFFFF"
-            android:textSize="17sp"/>
+            android:textSize="18sp"/>
     </LinearLayout>
 
     <RelativeLayout
         android:layout_width="fill_parent"
-        android:layout_height="fill_parent"
+        android:layout_height="wrap_content"
         android:background="@android:color/white"
         android:paddingTop="8dip"
         android:orientation="vertical">
@@ -66,55 +66,9 @@
             android:layout_below="@+id/nearby_reading_imagebuttom2"
             android:layout_alignLeft="@+id/nearby_reading_imagebuttom2"
             android:layout_marginLeft="30dip"
-            android:layout_marginTop="100dip"/>
-
-        <RelativeLayout
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="bottom"
-            android:layout_alignParentBottom="true">
-
-            <View
-                android:layout_width="fill_parent"
-                android:layout_height="1.0px"
-                android:layout_marginLeft="1.0px"
-                android:layout_marginRight="1.0px"
-                android:background="#ffc0c3c4" />
-            <LinearLayout
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
-                android:layout_alignParentLeft="true"
-                android:layout_alignParentTop="true"
-                android:paddingTop="15dip"
-                android:paddingBottom="15dip"
-                android:gravity="center" >
-
-                <ImageView
-                    android:id="@+id/tab1"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:src="@drawable/tab1" />
-
-                <ImageView
-                    android:id="@+id/tab2"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:src="@drawable/tab2" />
-
-                <ImageView
-                    android:id="@+id/tab3"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:src="@drawable/tab3" />
-            </LinearLayout>
-
-        </RelativeLayout>
-
+            android:layout_marginTop="100dip"
+            android:layout_marginBottom="110dip"/>
 
     </RelativeLayout>
-
 
 </LinearLayout>

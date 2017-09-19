@@ -10,6 +10,7 @@
         android:background="#3F51B5">
 
         <Button
+            android:id="@+id/back_button"
             android:layout_width="wrap_content"
             android:layout_height="40dp"
             android:background="@android:color/transparent"
@@ -19,12 +20,12 @@
 
         <TextView
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="fill_parent"
+            android:gravity="center"
             android:text="我的书友"
-            android:layout_gravity="center_vertical"
             android:layout_marginLeft="70dip"
             android:textColor="#FFFFFF"
-            android:textSize="17sp"/>
+            android:textSize="18sp"/>
     </LinearLayout>
 
     <TextView
@@ -55,10 +56,9 @@
             android:src="@drawable/f1"/>
 
         <TextView
-            android:id="@+id/friend_list_myName"
+            android:id="@+id/friend_list_context"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerVertical="true"
+            android:layout_height="fill_parent"
             android:layout_marginLeft="40dp"
             android:layout_toRightOf="@+id/friend_list_myImg"
             android:layout_weight="1.0"
@@ -73,61 +73,5 @@
         android:layout_marginLeft="1.0px"
         android:layout_marginRight="1.0px"
         android:background="#ffc0c3c4" />
-
-
-
-    <RelativeLayout
-        android:id="@+id/menu"
-        android:layout_width="fill_parent"
-        android:layout_height="match_parent"
-        android:background="@android:color/white">
-
-
-        <RelativeLayout
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="bottom"
-            android:layout_alignParentBottom="true">
-
-            <View
-                android:layout_width="fill_parent"
-                android:layout_height="1.0px"
-                android:layout_marginLeft="1.0px"
-                android:layout_marginRight="1.0px"
-                android:background="#ffc0c3c4" />
-            <LinearLayout
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
-                android:layout_alignParentLeft="true"
-                android:layout_alignParentTop="true"
-                android:paddingTop="15dip"
-                android:paddingBottom="15dip"
-                android:gravity="center" >
-
-                <ImageView
-                    android:id="@+id/tab1"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:src="@drawable/tab1" />
-
-                <ImageView
-                    android:id="@+id/tab2"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:src="@drawable/tab2" />
-
-                <ImageView
-                    android:id="@+id/tab3"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:src="@drawable/tab3" />
-            </LinearLayout>
-
-        </RelativeLayout>
-
-    </RelativeLayout>
 
 </LinearLayout>

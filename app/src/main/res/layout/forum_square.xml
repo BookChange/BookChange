@@ -4,61 +4,71 @@
     android:layout_height="fill_parent"
     android:orientation="vertical">
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:background="#3F51B5"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="fill_parent"
+            android:gravity="center"
+            android:text="论坛"
+            android:layout_gravity="center_horizontal"
+            android:textColor="#FFFFFF"
+            android:textSize="18sp"/>
+    </LinearLayout>
+
     <RelativeLayout
-        android:id="@+id/top"
         android:layout_width="fill_parent"
         android:layout_height="50dp"
-        android:layout_alignParentTop="true"
-        android:paddingLeft="10dp"
-        android:background="@android:color/white">
+        android:background="#F8F8FF">
 
-        <Button
-            android:id="@+id/btnSearch"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:layout_centerVertical="true"
-            android:layout_alignParentRight="true"
-            android:textSize="13sp"
-            android:textStyle="bold"
-            android:background="@drawable/button_login_selector"
-            android:text="搜索"/>
-
-        <RelativeLayout
+        <EditText
+            android:id="@+id/etSearch"
             android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="35dp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            android:cursorVisible="false"
+            android:background="@drawable/search"
+            android:hint="搜索"
             android:layout_centerVertical="true"
-            android:gravity="center_vertical"
-            android:layout_toLeftOf="@+id/btnSearch">
-
-            <EditText
-                android:id="@+id/etSearch"
-                android:layout_width="fill_parent"
-                android:layout_height="30dp"
-                android:singleLine="true"
-                android:background="@drawable/login_input"
-                android:layout_marginLeft="15dip"
-                android:paddingLeft="15dp"
-                android:textSize="15sp"
-                android:hint="请输入文字..."/>
-
-        </RelativeLayout>
-
+            android:gravity="center_horizontal|center_vertical"
+            android:textSize="15sp" />
 
     </RelativeLayout>
-
-    <RelativeLayout
-        android:id="@+id/menu"
+    <View
         android:layout_width="fill_parent"
-        android:layout_height="match_parent"
+        android:layout_height="1.0px"
+        android:layout_marginLeft="1.0px"
+        android:layout_marginRight="1.0px"
+        android:background="#ffc0c3c4" />
+
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="vertical"
         android:background="@android:color/white">
 
         <LinearLayout
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:gravity="center"
+            android:background="@android:color/white"
             android:orientation="vertical">
+            <TextView
+                android:id="@+id/my_bookfriend"
+                android:layout_width="fill_parent"
+                android:layout_height="46dp"
+                android:paddingLeft="20dp"
+                android:gravity="center_horizontal|center_vertical|left"
+                android:text="我的书友"
+                android:background="@drawable/layout_login_selector"
+                android:textColor="@android:color/black"
+                android:textSize="17sp" />
 
             <View
                 android:layout_width="fill_parent"
@@ -67,81 +77,42 @@
                 android:layout_marginRight="1.0px"
                 android:background="#ffc0c3c4" />
 
-            <Button
+            <TextView
+                android:id="@+id/read_thoughts"
+                android:layout_width="fill_parent"
+                android:layout_height="46dp"
+                android:paddingLeft="20dp"
+                android:gravity="center_horizontal|center_vertical|left"
+                android:text="读书感想"
+                android:background="@drawable/layout_login_selector"
+                android:textColor="@android:color/black"
+                android:textSize="17sp" />
+            <View
+                android:layout_width="fill_parent"
+                android:layout_height="1.0px"
+                android:layout_marginLeft="1.0px"
+                android:layout_marginRight="1.0px"
+                android:layout_below="@+id/offlint_meet"
+                android:background="#ffc0c3c4" />
+            <TextView
                 android:id="@+id/offlint_meet"
                 android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
-                android:background="@drawable/button_login_selector"
-                android:text="读书感想                                                >  "
-                android:textSize="19dp"/>
-
-            <View
-                android:layout_width="fill_parent"
-                android:layout_height="1.0px"
-                android:layout_marginLeft="1.0px"
-                android:layout_marginRight="1.0px"
-                android:layout_below="@+id/offlint_meet"
-                android:background="#ffc0c3c4" />
-            <Button
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
-                android:background="@drawable/button_login_selector"
-                android:text="组织线下交流会                                    >  "
-                android:textSize="19dp"/>
-            <View
-                android:layout_width="fill_parent"
-                android:layout_height="1.0px"
-                android:layout_marginLeft="1.0px"
-                android:layout_marginRight="1.0px"
-                android:layout_below="@+id/offlint_meet"
-                android:background="#ffc0c3c4" />
+                android:layout_height="46dp"
+                android:paddingLeft="20dp"
+                android:gravity="center_horizontal|center_vertical|left"
+                android:text="组织线下交流会"
+                android:background="@drawable/layout_login_selector"
+                android:textColor="@android:color/black"
+                android:textSize="17sp" />
         </LinearLayout>
-
-        <RelativeLayout
+        <View
             android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="bottom"
-            android:layout_alignParentBottom="true">
+            android:layout_height="1.0px"
+            android:layout_marginLeft="1.0px"
+            android:layout_marginRight="1.0px"
+            android:layout_below="@+id/offlint_meet"
+            android:background="#ffc0c3c4" />
 
-            <View
-                android:layout_width="fill_parent"
-                android:layout_height="1.0px"
-                android:layout_marginLeft="1.0px"
-                android:layout_marginRight="1.0px"
-                android:background="#ffc0c3c4" />
-            <LinearLayout
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
-                android:layout_alignParentLeft="true"
-                android:layout_alignParentTop="true"
-                android:paddingTop="15dip"
-                android:paddingBottom="15dip"
-                android:gravity="center" >
-
-                <ImageView
-                    android:id="@+id/tab1"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:src="@drawable/tab1" />
-
-                <ImageView
-                    android:id="@+id/tab2"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:src="@drawable/tab2" />
-
-                <ImageView
-                    android:id="@+id/tab3"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:src="@drawable/tab3" />
-            </LinearLayout>
-
-        </RelativeLayout>
-
-    </RelativeLayout>
+    </LinearLayout>
 
 </LinearLayout>

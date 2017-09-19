@@ -12,13 +12,12 @@
 
     <EditText
         android:layout_width="300dp"
-        android:layout_height="wrap_content"
+        android:layout_height="50dp"
         android:background="@android:color/transparent"
-        android:paddingTop="12dip"
-        android:paddingBottom="12dip"
+        android:gravity="center_vertical"
         android:hint="账号 / 手机号"
         android:phoneNumber="true"
-        android:textSize="18sp"
+        android:textSize="17sp"
         android:layout_gravity="center"/>
     <View
         android:layout_width="300dp"
@@ -30,13 +29,12 @@
 
     <EditText
         android:layout_width="300dp"
-        android:layout_height="wrap_content"
+        android:layout_height="50dp"
         android:background="@android:color/transparent"
-        android:paddingTop="12dip"
-        android:paddingBottom="12dip"
+        android:gravity="center_vertical"
         android:password="true"
         android:hint="密码"
-        android:textSize="18sp"
+        android:textSize="17sp"
         android:layout_gravity="center"
         android:imeActionId="@+id/login"
         android:imeOptions="actionUnspecified"
@@ -56,15 +54,16 @@
         android:layout_height="wrap_content"
         android:textSize="20dip" />
 
-    <Button
+    <TextView
         android:id="@+id/button_three1"
         android:layout_width="300dp"
         android:layout_height="45dip"
         android:layout_gravity="center"
+        android:gravity="center"
         android:background="#3366CC"
         android:text="         登  录        "
         android:textColor="#FFFFFF"
-        android:textSize="15sp"/>
+        android:textSize="17sp"/>
 
 
     <LinearLayout

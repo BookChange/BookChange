@@ -10,6 +10,7 @@
         android:background="#3F51B5">
 
         <Button
+            android:id="@+id/back_button"
             android:layout_width="wrap_content"
             android:layout_height="40dp"
             android:background="@android:color/transparent"
@@ -19,24 +20,23 @@
 
         <TextView
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="fill_parent"
+            android:gravity="center"
             android:text="书名完善"
-            android:layout_gravity="center_vertical"
             android:layout_marginLeft="70dip"
             android:textColor="#FFFFFF"
-            android:textSize="17sp"/>
+            android:textSize="18sp"/>
     </LinearLayout>
 
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_weight="1"
         android:gravity="center"
         android:orientation="vertical">
 
         <TextView
             android:layout_width="match_parent"
-            android:layout_height="26dp" />
+            android:layout_height="20dp" />
 
         <View
             android:layout_width="fill_parent"
@@ -45,34 +45,33 @@
             android:layout_marginRight="1.0px"
             android:background="#ffc0c3c4" />
         <RelativeLayout
+            android:id="@+id/book_count"
             android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:background="@android:color/white"
-            android:paddingTop="8dip">
+            android:layout_height="46dp"
+            android:background="@android:color/white">
 
             <TextView
                 android:id="@+id/copy_book_count"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="fill_parent"
+                android:gravity="center"
                 android:layout_alignParentLeft="true"
-                android:layout_marginLeft="10.0dp"
-                android:paddingBottom="8dip"
-                android:paddingTop="5dip"
+                android:paddingLeft="20dp"
                 android:text="我的图书数量"
                 android:textColor="@android:color/black"
-                android:textSize="19sp" />
+                android:textSize="17sp" />
 
             <EditText
-                android:id="@+id/book_count"
                 android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="fill_parent"
+                android:gravity="center_vertical"
+                android:layout_marginLeft="30dp"
                 android:layout_toRightOf="@+id/copy_book_count"
-                android:layout_marginLeft="20dp"
                 android:background="@null"
                 android:hint="册/本"
-                android:digits="0123456789"
-                android:inputType="number"
-                android:paddingTop="5dip" />
+                android:inputType="text"
+                android:textSize="17sp"/>
+
         </RelativeLayout>
         <View
             android:layout_width="fill_parent"
@@ -92,31 +91,33 @@
             android:layout_marginRight="1.0px"
             android:background="#ffc0c3c4" />
         <RelativeLayout
+            android:id="@+id/book_type"
             android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:background="@android:color/white">
+            android:layout_height="46dp"
+            android:clickable="true"
+            android:background="@drawable/layout_login_selector">
 
             <TextView
                 android:id="@+id/copy_book_type"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentLeft="true"
-                android:layout_marginLeft="10.0dp"
-                android:paddingTop="13dip"
+                android:layout_height="fill_parent"
+                android:gravity="center"
+                android:focusable="false"
+                android:paddingLeft="20dp"
                 android:text="我的图书种类"
                 android:textColor="@android:color/black"
-                android:textSize="19sp" />
+                android:textSize="17sp" />
 
-            <Button
-                android:id="@+id/book_type"
+            <TextView
                 android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="10dp"
+                android:layout_height="fill_parent"
                 android:layout_toRightOf="@+id/copy_book_type"
-                android:background="@drawable/button_login_selector"
+                android:focusable="false"
+                android:gravity="center_vertical|right"
+                android:paddingRight="20dip"
                 android:text="请选择您的图书种类     >"
                 android:textColor="#ffc0c3c4"
-                android:textSize="15sp" />
+                android:textSize="15sp"/>
         </RelativeLayout>
         <View
             android:layout_width="fill_parent"
@@ -137,21 +138,19 @@
             android:background="#ffc0c3c4" />
         <LinearLayout
             android:layout_width="fill_parent"
-            android:layout_height="300dip"
+            android:layout_height="wrap_content"
             android:background="@android:color/white"
-            android:layout_weight="1"
-            android:gravity="center"
             android:orientation="vertical">
 
             <TextView
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="7.0dp"
+                android:paddingLeft="20.0dp"
                 android:paddingBottom="8dip"
                 android:paddingTop="8dip"
                 android:text="我最喜欢的10本图书："
                 android:textColor="@android:color/black"
-                android:textSize="19dp" />
+                android:textSize="17sp" />
 
             <RelativeLayout
                 android:layout_width="fill_parent"
@@ -244,6 +243,7 @@
                     android:layout_marginLeft="25dip"
                     android:layout_below="@+id/bookname_edit7"
                     android:inputType="text"
+                    android:layout_marginBottom="8dp"
                     android:imeOptions="actionNext"/>
 
                 <EditText
@@ -253,6 +253,7 @@
                     android:layout_alignTop="@+id/bookname_edit9"
                     android:layout_toRightOf="@+id/bookname_edit9"
                     android:layout_marginLeft="25dip"
+                    android:layout_marginBottom="8dp"
                     android:inputType="text" />
 
 

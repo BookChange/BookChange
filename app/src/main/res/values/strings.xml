@@ -5,6 +5,7 @@
 
 
     <drawable name="clr_normal">#00000000</drawable>
-    <drawable name="clr_pressed">#C0C0C0</drawable>
+    <drawable name="layout_clr_normal">#FFFFFF</drawable>
+    <drawable name="layout_clr_pressed">#C0C0C0</drawable>
 
 </resources>

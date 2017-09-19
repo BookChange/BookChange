@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:layout_alignParentBottom="true">
+
+        <View
+            android:layout_width="fill_parent"
+            android:layout_height="1.0px"
+            android:layout_marginLeft="1.0px"
+            android:layout_marginRight="1.0px"
+            android:background="#ffc0c3c4" />
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:paddingTop="5dip"
+            android:paddingBottom="5dip"
+            android:gravity="center" >
+
+            <RelativeLayout
+                android:id="@+id/btm_forum"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:onClick="onTabClicked"
+                android:gravity="center">
+
+                <ImageView
+                    android:id="@+id/ib_forum"
+                    android:layout_width="wrap_content"
+                    android:layout_height="28dip"
+                    android:layout_weight="1"
+                    android:src="@drawable/tab1" />
+
+                <TextView
+                    android:id="@+id/tv_forum"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/ib_forum"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="3dp"
+                    android:text="论坛"
+                    android:textColor="#9A9A9A"
+                    android:textSize="12sp" />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/btm_find"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:onClick="onTabClicked"
+                android:layout_marginLeft="22dip"
+                android:gravity="center" >
+
+                <ImageView
+                    android:id="@+id/ib_find"
+                    android:layout_width="wrap_content"
+                    android:layout_height="28dip"
+                    android:layout_weight="1"
+                    android:src="@drawable/tab2" />
+
+                <TextView
+                    android:id="@+id/tv_find"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/ib_find"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="3dp"
+                    android:text="发现"
+                    android:textColor="#9A9A9A"
+                    android:textSize="12sp" />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/btm_my"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:onClick="onTabClicked"
+                android:layout_marginLeft="22dip"
+                android:gravity="center" >
+
+                <ImageView
+                    android:id="@+id/ib_my"
+                    android:layout_width="wrap_content"
+                    android:layout_height="28dip"
+                    android:layout_weight="1"
+                    android:src="@drawable/tab3" />
+
+                <TextView
+                    android:id="@+id/tv_my"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/ib_my"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="3dp"
+                    android:text="我"
+                    android:textColor="#9A9A9A"
+                    android:textSize="12sp" />
+
+            </RelativeLayout>
+
+        </LinearLayout>
+
+    </RelativeLayout>
+
+</LinearLayout>

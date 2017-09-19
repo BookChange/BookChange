@@ -16,6 +16,29 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+         <activity android:name=".view.activity.MyphotoActivity" android:screenOrientation="portrait">
+        </activity>
+         <activity android:name=".view.activity.CompleteinfoActivity" android:screenOrientation="portrait">
+        </activity>
+         <activity android:name=".view.activity.CompletebooknameActivity" android:screenOrientation="portrait">
+        </activity>
+         <activity android:name=".view.activity.BookfriendActivity" android:screenOrientation="portrait">
+        </activity>
+         <activity android:name=".view.activity.SettingActivity" android:screenOrientation="portrait">
+        </activity>
+         <activity android:name=".view.activity.CustomerserviceActivity" android:screenOrientation="portrait">
+        </activity>
+         <activity android:name=".view.activity.AccountsecurityActivity" android:screenOrientation="portrait">
+        </activity>
+         <activity android:name=".view.activity.ContactfriendActivity" android:screenOrientation="portrait">
+        </activity>
+         <activity android:name=".view.activity.SearchActivity" android:screenOrientation="portrait">
+        </activity>
+         <activity android:name=".view.activity.OrganizationActivity" android:screenOrientation="portrait">
+        </activity>
+
+
     </application>
 
 </manifest>

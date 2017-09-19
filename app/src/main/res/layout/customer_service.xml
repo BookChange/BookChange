@@ -12,6 +12,7 @@
         android:background="#3F51B5">
 
         <Button
+            android:id="@+id/back_button"
             android:layout_width="wrap_content"
             android:layout_height="40dp"
             android:background="@android:color/transparent"
@@ -21,24 +22,42 @@
 
         <TextView
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="fill_parent"
+            android:gravity="center"
             android:text="客服中心"
-            android:layout_gravity="center_vertical"
             android:layout_marginLeft="70dip"
             android:textColor="#FFFFFF"
-            android:textSize="17dip"/>
+            android:textSize="18dip"/>
     </LinearLayout>
 
-    <LinearLayout
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="15dp" />
+
+
+    <View
         android:layout_width="fill_parent"
+        android:layout_height="1.0px"
+        android:layout_marginLeft="1.0px"
+        android:layout_marginRight="1.0px"
+        android:background="#ffc0c3c4" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_weight="1"
+        android:background="@android:color/white"
         android:orientation="vertical">
 
         <TextView
-            android:layout_width="match_parent"
-            android:layout_height="15dp" />
-
+            android:id="@+id/online_customer"
+            android:layout_width="fill_parent"
+            android:layout_height="46dp"
+            android:paddingLeft="20dp"
+            android:gravity="center_horizontal|center_vertical|left"
+            android:text="在线客服"
+            android:background="@drawable/layout_login_selector"
+            android:textColor="@android:color/black"
+            android:textSize="17sp" />
 
         <View
             android:layout_width="fill_parent"
@@ -46,13 +65,18 @@
             android:layout_marginLeft="1.0px"
             android:layout_marginRight="1.0px"
             android:background="#ffc0c3c4" />
-        <Button
-            android:id="@+id/button"
+
+        <TextView
+            android:id="@+id/phone_customer"
             android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:background="@drawable/button_login_selector"
-            android:text="在线客服                                                  >"
-            android:textSize="19dp" />
+            android:layout_height="46dp"
+            android:paddingLeft="20dp"
+            android:gravity="center_horizontal|center_vertical|left"
+            android:text="电话客服"
+            android:background="@drawable/layout_login_selector"
+            android:textColor="@android:color/black"
+            android:textSize="17sp" />
+
         <View
             android:layout_width="fill_parent"
             android:layout_height="1.0px"
@@ -60,36 +84,24 @@
             android:layout_marginRight="1.0px"
             android:background="#ffc0c3c4" />
 
-        <Button
-            android:id="@+id/button2"
+        <TextView
+            android:id="@+id/report_phone"
             android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:background="@drawable/button_login_selector"
-            android:text="电话客服                                                  >"
-            android:textSize="19dp" />
-        <View
-            android:layout_width="fill_parent"
-            android:layout_height="1.0px"
-            android:layout_marginLeft="1.0px"
-            android:layout_marginRight="1.0px"
-            android:background="#ffc0c3c4" />
-
-        <Button
-            android:id="@+id/button3"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:background="@drawable/button_login_selector"
-            android:text="举报书友                                                  >"
-            android:textSize="19dp" />
-        <View
-            android:layout_width="fill_parent"
-            android:layout_height="1.0px"
-            android:layout_marginLeft="1.0px"
-            android:layout_marginRight="1.0px"
-            android:background="#ffc0c3c4" />
-
+            android:layout_height="46dp"
+            android:paddingLeft="20dp"
+            android:gravity="center_horizontal|center_vertical|left"
+            android:text="举报书友"
+            android:background="@drawable/layout_login_selector"
+            android:textColor="@android:color/black"
+            android:textSize="17sp" />
 
     </LinearLayout>
 
+    <View
+        android:layout_width="fill_parent"
+        android:layout_height="1.0px"
+        android:layout_marginLeft="1.0px"
+        android:layout_marginRight="1.0px"
+        android:background="#ffc0c3c4" />
 
 </LinearLayout>
