@@ -37,6 +37,10 @@
         </activity>
          <activity android:name=".view.activity.OrganizationActivity" android:screenOrientation="portrait">
         </activity>
+         <activity android:name=".view.activity.AddressBaseActivity" android:screenOrientation="portrait">
+        </activity>
+         <activity android:name=".view.activity.AddressActivity" android:screenOrientation="portrait">
+        </activity>
 
 
     </application>

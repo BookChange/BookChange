@@ -72,17 +72,36 @@
             android:layout_marginRight="1.0px"
             android:background="#ffc0c3c4" />
 
-        <TextView
+        <LinearLayout
             android:id="@+id/activities_address"
-            android:layout_width="fill_parent"
+            android:layout_width="match_parent"
             android:layout_height="46dp"
-            android:gravity="center_vertical"
-            android:layout_alignParentLeft="true"
-            android:paddingLeft="20dp"
-            android:text="交流会地点"
-            android:textColor="@android:color/black"
-            android:textSize="17sp"
-            android:background="@drawable/layout_login_selector"/>
+            android:clickable="true"
+            android:background="@drawable/layout_login_selector"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="fill_parent"
+                android:gravity="center_vertical"
+                android:focusable="false"
+                android:paddingLeft="20dp"
+                android:text="交流会地点"
+                android:textColor="@android:color/black"
+                android:textSize="17sp" />
+
+            <TextView
+                android:id="@+id/activities_view_address"
+                android:layout_width="wrap_content"
+                android:layout_height="fill_parent"
+                android:gravity="center_vertical|right"
+                android:focusable="false"
+                android:layout_weight="1"
+                android:text="地点："
+                android:paddingRight="15dip"
+                android:textColor="#ffc0c3c4"
+                android:textSize="16sp" />
+        </LinearLayout>
 
         <View
             android:layout_width="fill_parent"
