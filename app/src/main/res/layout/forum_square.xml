@@ -25,18 +25,17 @@
         android:layout_height="50dp"
         android:background="#F8F8FF">
 
-        <EditText
+        <TextView
             android:id="@+id/etSearch"
             android:layout_width="fill_parent"
             android:layout_height="35dp"
             android:layout_marginLeft="15dp"
             android:layout_marginRight="15dp"
-            android:cursorVisible="false"
             android:background="@drawable/search"
             android:hint="搜索"
             android:layout_centerVertical="true"
             android:gravity="center_horizontal|center_vertical"
-            android:textSize="15sp" />
+            android:textSize="14sp" />
 
     </RelativeLayout>
     <View

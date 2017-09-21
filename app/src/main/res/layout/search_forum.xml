@@ -7,6 +7,8 @@
     <RelativeLayout
         android:layout_width="fill_parent"
         android:layout_height="50dp"
+        android:focusable="true"
+        android:focusableInTouchMode="true"
         android:background="@android:color/transparent">
 
         <EditText
@@ -16,12 +18,14 @@
             android:layout_centerVertical="true"
             android:layout_marginLeft="8dip"
             android:layout_marginRight="15dip"
-            android:paddingLeft="30dip"
-            android:hint="搜索"
             android:layout_toRightOf="@+id/copy_search_icon"
             android:background="@drawable/search_ba"
+            android:hint="搜索"
+            android:paddingLeft="30dip"
             android:singleLine="true"
-            android:textSize="15sp" />
+            android:textSize="15sp"
+            android:imeOptions="actionSearch" />
+
         <ImageView
             android:id="@id/copy_search_icon"
             android:layout_width="18dip"

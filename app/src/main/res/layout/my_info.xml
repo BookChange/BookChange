@@ -40,8 +40,6 @@
                 android:src="@drawable/ic_message_blue"/>
 
         </LinearLayout>
-
-
     </LinearLayout>
 
     <ScrollView

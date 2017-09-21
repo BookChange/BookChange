@@ -1,7 +1,10 @@
 package com.cd.bookchange.view.activity;
 
 import android.os.Bundle;
+import android.text.TextUtils;
+import android.view.KeyEvent;
 import android.view.View;
+import android.widget.EditText;
 import android.widget.TextView;
 
 import com.cd.bookchange.Constants;
@@ -12,7 +15,7 @@ import com.cd.bookchange.common.Utils;
 import com.cd.bookchange.view.BaseActivity;
 
 
-public class MyphotoActivity extends BaseActivity implements View.OnClickListener {
+public class MyphotoActivity extends BaseActivity implements View.OnClickListener,TextView.OnEditorActionListener {
     private TextView tvname, tv_introduction;
 
     @Override
@@ -25,8 +28,10 @@ public class MyphotoActivity extends BaseActivity implements View.OnClickListene
     private void setOnListner() {
         findViewById(R.id.back_button).setOnClickListener(this);
         findViewById(R.id.change_headshot).setOnClickListener(this);
-        findViewById(R.id.my_nickname).setOnClickListener(this);
-        findViewById(R.id.my_biography).setOnClickListener(this);
+        tvname = (EditText)findViewById(R.id.change_nickname);
+        tvname.setOnEditorActionListener(this);
+        tv_introduction = (EditText)findViewById(R.id.change_introduction);
+        tv_introduction.setOnEditorActionListener(this);
     }
 
     @Override
@@ -37,9 +42,9 @@ public class MyphotoActivity extends BaseActivity implements View.OnClickListene
                 break;
 //            case R.id.change_headshot:
 //                break;
-//            case R.id.my_nickname:
+//            case R.id.change_nickname:
 //                break;
-//            case R.id.my_biography:
+//            case R.id.change_introduction:
 //                break;
             default:
                 break;
@@ -50,8 +55,7 @@ public class MyphotoActivity extends BaseActivity implements View.OnClickListene
 
     @Override
     protected void initControl() {
-        tvname = (TextView) findViewById(R.id.my_nickname);
-        tv_introduction = (TextView) findViewById(R.id.my_biography);
+
     }
 
     @Override
@@ -62,11 +66,20 @@ public class MyphotoActivity extends BaseActivity implements View.OnClickListene
 
     @Override
     protected void initData() {
-        String name = Utils.getValue(this, Constants.NAME);
+        String name = tvname.getText().toString();
+        if (TextUtils.isEmpty(name)) {
+            Utils.showLongToast(MyphotoActivity.this, "请填写您的昵称！ ");
+            return;
+        }
         tvname.setText(name);
+        System.out.print("昵称"+name);    //调试代码，判断nickname
         User user = GloableParams.Users.get(name);
-        String introduction = Utils.getValue(this, Constants.UserInfo);
+        if (user != null && !TextUtils.isEmpty(user.getUserName()))
+            tvname.setText(user.getUserName());
+        String introduction = tv_introduction.getText().toString();
+        System.out.print("个性签名"+introduction);  //调试代码，introduction
         tv_introduction.setText(introduction);
+        introduction = Utils.getValue(this, Constants.UserInfo);
         user = GloableParams.Users.get(introduction);
     }
 
@@ -74,5 +87,12 @@ public class MyphotoActivity extends BaseActivity implements View.OnClickListene
     protected void setListener() {
         // TODO Auto-generated method stub
 
+    }
+
+    @Override
+    public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
+
+
+        return true;
     }
 }

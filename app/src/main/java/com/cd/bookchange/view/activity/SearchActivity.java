@@ -7,9 +7,7 @@ import android.widget.EditText;
 import com.cd.bookchange.R;
 import com.cd.bookchange.view.BaseActivity;
 
-/**
- * Created by Administrator on 2017/9/18.
- */
+
 
 public class SearchActivity extends BaseActivity implements View.OnClickListener {
     private EditText etsearch;
@@ -17,12 +15,16 @@ public class SearchActivity extends BaseActivity implements View.OnClickListener
     public void onCreate(Bundle savedInstanceState) {
         setContentView(R.layout.search_forum);
         super.onCreate(savedInstanceState);
+
     }
 
     @Override
     protected void initControl() {
+        //自用弹出软键盘
         etsearch = (EditText) findViewById(R.id.search_view_icon);
-
+        etsearch.setFocusable(true);
+        etsearch.setFocusableInTouchMode(true);
+        etsearch.requestFocus();
     }
 
     @Override
@@ -37,6 +39,7 @@ public class SearchActivity extends BaseActivity implements View.OnClickListener
 
     @Override
     protected void setListener() {
+        etsearch.setOnClickListener(this);
 
     }
 

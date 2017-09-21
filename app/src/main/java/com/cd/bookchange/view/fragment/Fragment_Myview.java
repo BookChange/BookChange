@@ -46,6 +46,8 @@ public class Fragment_Myview extends Fragment implements View.OnClickListener {
     private void setOnListener() {
         layout.findViewById(R.id.new_message).setOnClickListener(this);
         layout.findViewById(R.id.my_photo).setOnClickListener(this);
+        layout.findViewById(R.id.my_nickname).setOnClickListener(this);
+        layout.findViewById(R.id.my_introduction).setOnClickListener(this);
         layout.findViewById(R.id.complet_info).setOnClickListener(this);
         layout.findViewById(R.id.complet_bookname).setOnClickListener(this);
         layout.findViewById(R.id.my_reading).setOnClickListener(this);
@@ -93,6 +95,6 @@ public class Fragment_Myview extends Fragment implements View.OnClickListener {
         String name = Utils.getValue(getActivity(), Constants.NAME);
         tvname.setText("昵称：" + name);
         String introduction = Utils.getValue(getActivity(), Constants.UserInfo);
-        tv_introduction.setText(introduction);
+        tv_introduction.setText("个性签名" + introduction);
     }
 }

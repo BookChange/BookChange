@@ -63,4 +63,43 @@ public class Utils {
     }
 
 
+    /**
+     * 设置SharedPreference 值
+     *
+     * @param context
+     * @param key
+     * @return
+     */
+    public static final boolean putValue(Context context, String key,
+                                         String value) {
+        value = value == null ? "" : value;
+        SharedPreferences.Editor editor = getSharedPreference(context).edit();
+        editor.putString(key, value);
+        boolean result = editor.commit();
+        if (!result) {
+            return false;
+        }
+        return true;
+    }
+
+    /**
+     * 设置SharedPreference 值
+     *
+     * @param context
+     * @param key
+     * @param value
+     */
+    public static final boolean putIntValue(Context context, String key,
+                                            int value) {
+        SharedPreferences.Editor editor = getSharedPreference(context).edit();
+        editor.putInt(key, value);
+        boolean result = editor.commit();
+        if (!result) {
+            return false;
+        }
+        return true;
+    }
+
+
+
 }

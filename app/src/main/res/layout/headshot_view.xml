@@ -69,7 +69,7 @@
                 android:textSize="17sp" />
 
             <EditText
-                android:id="@+id/my_nickname"
+                android:id="@+id/change_nickname"
                 android:layout_width="fill_parent"
                 android:layout_height="fill_parent"
                 android:gravity="center_vertical"
@@ -78,7 +78,8 @@
                 android:background="@null"
                 android:hint="原来的昵称，点击可变更"
                 android:inputType="text"
-                android:textSize="17sp"/>
+                android:textSize="17sp"
+                android:imeOptions="actionDone"/>
         </RelativeLayout>
         <View
             android:layout_width="fill_parent"
@@ -104,7 +105,7 @@
 
 
             <TextView
-                android:id="@+id/copy_biography"
+                android:id="@+id/copy_introduction"
                 android:layout_width="wrap_content"
                 android:layout_height="46dip"
                 android:gravity="center_vertical"
@@ -115,15 +116,15 @@
                 android:textSize="17sp" />
 
             <EditText
-                android:id="@+id/my_biography"
+                android:id="@+id/change_introduction"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center_vertical"
                 android:layout_marginLeft="10dip"
-                android:layout_toRightOf="@+id/copy_biography"
+                android:layout_toRightOf="@+id/copy_introduction"
                 android:textCursorDrawable="@null"
                 android:inputType="textMultiLine"
-                android:textSize="17sp"/>
+                android:textSize="17sp" />
 
 
         </RelativeLayout>
