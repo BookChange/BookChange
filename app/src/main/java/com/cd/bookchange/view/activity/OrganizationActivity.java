@@ -59,8 +59,8 @@ public class OrganizationActivity extends ActionBarActivity implements View.OnCl
                 Utils.start_Activity(OrganizationActivity.this, AddressActivity.class);
 
                 //获取选中的地址
-                Intent intent=getIntent();  //getIntent将该项目中包含的原始intent检索出来，将检索出来的intent赋值给一个Intent类型的变量intent
-                String str=intent.getStringExtra("str"); //getString()返回指定key的值
+                Intent intent = getIntent();  //getIntent将该项目中包含的原始intent检索出来，将检索出来的intent赋值给一个Intent类型的变量intent
+                String str = intent.getStringExtra("str"); //getString()返回指定key的值
                 tv_address.setText(str);    //用TextView显示值
 
                 break;

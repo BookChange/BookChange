@@ -2,17 +2,16 @@ package com.cd.bookchange.view.activity;
 
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
 
-import com.cd.bookchange.Constants;
-import com.cd.bookchange.GloableParams;
 import com.cd.bookchange.R;
-import com.cd.bookchange.bean.User;
 import com.cd.bookchange.common.Utils;
 import com.cd.bookchange.view.BaseActivity;
+import com.cd.bookchange.view.fragment.Fragment_Myview;
 
 
 public class MyphotoActivity extends BaseActivity implements View.OnClickListener,TextView.OnEditorActionListener {
@@ -28,10 +27,6 @@ public class MyphotoActivity extends BaseActivity implements View.OnClickListene
     private void setOnListner() {
         findViewById(R.id.back_button).setOnClickListener(this);
         findViewById(R.id.change_headshot).setOnClickListener(this);
-        tvname = (EditText)findViewById(R.id.change_nickname);
-        tvname.setOnEditorActionListener(this);
-        tv_introduction = (EditText)findViewById(R.id.change_introduction);
-        tv_introduction.setOnEditorActionListener(this);
     }
 
     @Override
@@ -66,21 +61,27 @@ public class MyphotoActivity extends BaseActivity implements View.OnClickListene
 
     @Override
     protected void initData() {
+        tvname = (EditText)findViewById(R.id.change_nickname);
+        tvname.setOnEditorActionListener(this);
+        tv_introduction = (EditText)findViewById(R.id.change_introduction);
+        tv_introduction.setOnEditorActionListener(this);
         String name = tvname.getText().toString();
         if (TextUtils.isEmpty(name)) {
             Utils.showLongToast(MyphotoActivity.this, "请填写您的昵称！ ");
             return;
         }
         tvname.setText(name);
-        System.out.print("昵称"+name);    //调试代码，判断nickname
-        User user = GloableParams.Users.get(name);
-        if (user != null && !TextUtils.isEmpty(user.getUserName()))
-            tvname.setText(user.getUserName());
+        Log.d("TAG_", "昵称" + name);    //调试代码，判断nickname
         String introduction = tv_introduction.getText().toString();
-        System.out.print("个性签名"+introduction);  //调试代码，introduction
         tv_introduction.setText(introduction);
-        introduction = Utils.getValue(this, Constants.UserInfo);
-        user = GloableParams.Users.get(introduction);
+        Log.d("TAG_", "个性签名"+introduction);  //调试代码，introduction
+
+        //传递当前页面的数据
+        Fragment_Myview fragment_myview = new Fragment_Myview();
+        Bundle bundle = new Bundle();
+        bundle.putString("str_mynickname", name);
+        bundle.putString("str_myintroduction", introduction);
+        fragment_myview.setArguments(bundle);
     }
 
     @Override

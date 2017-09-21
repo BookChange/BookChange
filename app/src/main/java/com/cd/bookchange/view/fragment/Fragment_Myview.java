@@ -8,7 +8,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-import com.cd.bookchange.Constants;
 import com.cd.bookchange.R;
 import com.cd.bookchange.common.Utils;
 import com.cd.bookchange.view.activity.CompletebooknameActivity;
@@ -24,6 +23,17 @@ public class Fragment_Myview extends Fragment implements View.OnClickListener {
     private Activity ctx;
     private View layout;
     private TextView tvname, tv_introduction;
+    String str_name,str_introduction;
+
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        if (getArguments() != null) {
+            str_name = getArguments().getString("str_mynickname");
+            str_introduction = getArguments().getString("str_myintroduction");
+        }
+    }
+
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -46,8 +56,6 @@ public class Fragment_Myview extends Fragment implements View.OnClickListener {
     private void setOnListener() {
         layout.findViewById(R.id.new_message).setOnClickListener(this);
         layout.findViewById(R.id.my_photo).setOnClickListener(this);
-        layout.findViewById(R.id.my_nickname).setOnClickListener(this);
-        layout.findViewById(R.id.my_introduction).setOnClickListener(this);
         layout.findViewById(R.id.complet_info).setOnClickListener(this);
         layout.findViewById(R.id.complet_bookname).setOnClickListener(this);
         layout.findViewById(R.id.my_reading).setOnClickListener(this);
@@ -92,9 +100,8 @@ public class Fragment_Myview extends Fragment implements View.OnClickListener {
     private void initViews() {
         tvname = (TextView) layout.findViewById(R.id.my_nickname);
         tv_introduction = (TextView) layout.findViewById(R.id.my_introduction);
-        String name = Utils.getValue(getActivity(), Constants.NAME);
-        tvname.setText("昵称：" + name);
-        String introduction = Utils.getValue(getActivity(), Constants.UserInfo);
-        tv_introduction.setText("个性签名" + introduction);
+        //获取选中的地址
+        tvname.setText("昵称：" + str_name);
+        tv_introduction.setText("个性签名" + str_introduction);
     }
 }

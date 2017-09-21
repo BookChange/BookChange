@@ -123,7 +123,7 @@ public class AddressActivity extends AddressBaseActivity implements View.OnClick
                 //传递当前选中的数据
                 Intent intent = new Intent(AddressActivity.this, OrganizationActivity.class);
                 intent.putExtra("str", mCurrentProviceName+","+mCurrentCityName+","
-                        +mCurrentDistrictName+","+mCurrentZipCode);  //给intent添加额外数据，key为“str”,value为选中的地址
+                        +mCurrentDistrictName);  //给intent添加额外数据，key为“str”,value为选中的地址
                 startActivity(intent);
 
                 //设置1秒后自动关闭地址选择页面
