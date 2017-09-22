@@ -2,5 +2,5 @@ package com.cd.bookchange.view.activity;
 
 
 public class AboutusActivity {
-   //cddfo测试代码
+   //陈登测试了代码
 }
