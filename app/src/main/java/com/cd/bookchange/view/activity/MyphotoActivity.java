@@ -71,10 +71,10 @@ public class MyphotoActivity extends BaseActivity implements View.OnClickListene
             return;
         }
         tvname.setText(name);
-        Log.d("TAG_", "昵称" + name);    //调试代码，判断nickname
+        Log.e("TAG_", "昵称" + name);    //调试代码，判断nickname
         String introduction = tv_introduction.getText().toString();
         tv_introduction.setText(introduction);
-        Log.d("TAG_", "个性签名"+introduction);  //调试代码，introduction
+        Log.e("TAG_", "个性签名"+introduction);  //调试代码，introduction
 
         //传递当前页面的数据
         Fragment_Myview fragment_myview = new Fragment_Myview();
