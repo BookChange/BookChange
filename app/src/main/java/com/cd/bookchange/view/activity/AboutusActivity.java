@@ -6,4 +6,5 @@ package com.cd.bookchange.view.activity;
 
 public class AboutusActivity {
 
+    //代码注释，测试Git
 }
