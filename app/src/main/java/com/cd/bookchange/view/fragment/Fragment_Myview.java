@@ -104,6 +104,4 @@ public class Fragment_Myview extends Fragment implements View.OnClickListener {
         tvname.setText("昵称：" + str_name);
         tv_introduction.setText("个性签名" + str_introduction);
     }
-    //add fc mothod
-    private  void fc(){}
 }
