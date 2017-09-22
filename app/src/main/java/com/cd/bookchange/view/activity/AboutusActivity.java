@@ -1,10 +1,6 @@
 package com.cd.bookchange.view.activity;
 
-/**
- * Created by Administrator on 2017/9/15.
- */
 
 public class AboutusActivity {
-
-    //代码注释，测试Git
+    //测试Git,陈登修改了代码
 }
