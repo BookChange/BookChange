@@ -4,7 +4,7 @@ package com.cd.bookchange.bean;
 public class User {
     private String telephone;// 手机号
     private String id;//
-    private String password;// 头像保存路径
+    private String password;//
     private String userName;// 用户名
     private String headUrl;// 头像保存路径
     private String signature;// 个性签名

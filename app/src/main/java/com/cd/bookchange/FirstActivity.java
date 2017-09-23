@@ -5,9 +5,12 @@ import android.os.Bundle;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
+import android.view.Gravity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.Toast;
 
 import com.cd.bookchange.bean.Account;
@@ -88,7 +91,8 @@ public class FirstActivity extends AppCompatActivity implements View.OnClickList
                                   for (Account account:list){
 
                                       if (b.equals(account.getPassword())){
-                                          Toast.makeText(getApplicationContext(), "登陆成功", Toast.LENGTH_SHORT).show();
+                                          Toast.makeText(getApplication(),"登陆成功",Toast.LENGTH_SHORT).show();
+
                                           Intent intent = new Intent(FirstActivity.this, MainActivity.class);
                                           FirstActivity.this.startActivity(intent);
                                           Collector.finishAll();

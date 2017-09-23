@@ -20,7 +20,8 @@
         android:layout_height="50dp"
         android:layout_gravity="center"
         android:digits="@string/register_name_digits"
-        android:hint="密码"/>
+        android:hint="密码"
+        android:password="true"/>
 
     <Button
         android:id="@+id/b_one"

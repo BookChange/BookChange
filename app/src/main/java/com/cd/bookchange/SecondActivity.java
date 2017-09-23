@@ -1,7 +1,9 @@
 package com.cd.bookchange;
 
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
@@ -51,7 +53,14 @@ public class SecondActivity extends AppCompatActivity implements View.OnClickLis
                     @Override
                     public void done(String s, BmobException e) {
                         if(e==null){
-                            Toast.makeText(getApplicationContext(), "注册成功！", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(getApplicationContext(), "注册成功！即将返回登陆界面", Toast.LENGTH_SHORT).show();
+                            new Handler().postDelayed(new Runnable() {
+                                public void run() {
+                                    Intent intent = new Intent(SecondActivity.this, FirstActivity.class);
+                                    SecondActivity.this.startActivity(intent);
+                                    SecondActivity.this.finish();
+                                }
+                            }, 1500);
                         }else{
                             Toast.makeText(getApplicationContext(), "注册失败！", Toast.LENGTH_SHORT).show();
                         }
