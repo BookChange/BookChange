@@ -50,16 +50,13 @@ public class FirstActivity extends AppCompatActivity implements View.OnClickList
         bthree=(Button) findViewById(R.id.b_three);
         bfour=(Button) findViewById(R.id.b_four);
 
-
         bone.setOnClickListener(this);
         btwo.setOnClickListener(this);
         bthree.setOnClickListener(this);
         bfour.setOnClickListener(this);
-
     }
 
     public void onClick(View v){
-
         switch (v.getId()) {
             case R.id.b_one:
                 //点击登录关闭软键盘
@@ -67,22 +64,24 @@ public class FirstActivity extends AppCompatActivity implements View.OnClickList
                         getSystemService(Context.INPUT_METHOD_SERVICE);
                 imm.hideSoftInputFromWindow(v.getWindowToken(), 0);
 
+                bone.setText("正在登录...  ");
+
                 BmobQuery<Account> query=new BmobQuery<Account>();
                 final String a=editTextone.getText().toString();
                 final String b=editTexttwo.getText().toString();
 
-
                 query.addWhereEqualTo("account",a);
                 query.count(Account.class, new CountListener() {
                     @Override
-
                     public void done(Integer integer, BmobException e) {
                         if (a.equals("")||b.equals("")){
                             Toast.makeText(getApplicationContext(), "账号或密码不能为空！", Toast.LENGTH_SHORT).show();
+                            bone.setText("登 录");
                              return;}
                         if(e==null){
                             if (integer==0){
                                 Toast.makeText(getApplicationContext(), "账号不存在！", Toast.LENGTH_SHORT).show();}
+                            bone.setText("登 录");
                         }else{
                             Log.i("bmob","失败："+e.getMessage()+","+e.getErrorCode());
                         }
@@ -93,19 +92,18 @@ public class FirstActivity extends AppCompatActivity implements View.OnClickList
                     public void done(List<Account> list, BmobException e) {
                         if(e==null){
                             for (Account account:list){
-
-                                      if (b.equals(account.getPassword())){
-                                          Toast.makeText(getApplication(),"登陆成功",Toast.LENGTH_SHORT).show();
-
-                                          Intent intent = new Intent(FirstActivity.this, MainActivity.class);
-                                          FirstActivity.this.startActivity(intent);
-                                          Collector.finishAll();
-                                      }
-                                      else {
-                                          Toast.makeText(getApplicationContext(), "密码错误", Toast.LENGTH_SHORT).show();
-                                      }
-                                  }
-
+                                if (b.equals(account.getPassword())){
+                                    Toast.makeText(getApplication(),"登录成功",Toast.LENGTH_SHORT).show();
+                                    bone.setText("正在登录...  ");
+                                    Intent intent = new Intent(FirstActivity.this, MainActivity.class);
+                                    FirstActivity.this.startActivity(intent);
+                                    Collector.finishAll();
+                                }
+                                else {
+                                    Toast.makeText(getApplicationContext(), "密码错误", Toast.LENGTH_SHORT).show();
+                                    bone.setText("登 录");
+                                }
+                            }
                         }else{
                             Log.i("bmob","失败："+e.getMessage()+","+e.getErrorCode());
                         }

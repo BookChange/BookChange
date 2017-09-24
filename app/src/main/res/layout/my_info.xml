@@ -82,6 +82,7 @@
                     android:id="@+id/my_nickname"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_marginTop="8dip"
                     android:text="昵称："
                     android:layout_gravity="left"
                     android:textSize="15sp"
@@ -92,7 +93,7 @@
                     android:id="@+id/my_introduction"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="15dip"
+                    android:layout_marginTop="8dip"
                     android:text="个性签名："
                     android:layout_gravity="left"
                     android:textSize="15sp"/>

@@ -14,6 +14,14 @@ import com.facebook.drawee.view.SimpleDraweeView;
 public class ScreenActivity extends AppCompatActivity {
     private SimpleDraweeView dvWelcome;
 
+    private String CreateRandom(){
+        java.util.Random random=new java.util.Random();// 定义随机类
+        int a = random.nextInt(10) + 1;// 返回[1,5]集合中的整数
+//        Log.e("TAG_", ""+a);  //记录产生的随机数
+        String b = ("asset://com.cd.bookchange/screen" + a + ".gif");
+        return b;
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -22,10 +30,9 @@ public class ScreenActivity extends AppCompatActivity {
         setContentView(R.layout.activity_screen);
         dvWelcome= (SimpleDraweeView) findViewById(R.id.dv_welcome);
 
-
         DraweeController draweeController = Fresco.newDraweeControllerBuilder()
                 .setAutoPlayAnimations(true)//自动播放动画
-                .setUri(Uri.parse("asset://com.cd.bookchange/screen.gif"))//路径
+                .setUri(Uri.parse(CreateRandom()))//路径
                 .build();
         dvWelcome.setController(draweeController);
 

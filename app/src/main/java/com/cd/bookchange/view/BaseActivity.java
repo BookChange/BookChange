@@ -72,4 +72,6 @@ public abstract class BaseActivity extends Activity{
      * 设置监听
      */
     protected abstract void setListener();
+
+
 }

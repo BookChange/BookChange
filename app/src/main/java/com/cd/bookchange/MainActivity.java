@@ -4,14 +4,19 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentTransaction;
 import android.os.Bundle;
+import android.view.KeyEvent;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.cd.bookchange.view.fragment.Fragment_Discover;
 import com.cd.bookchange.view.fragment.Fragment_Forum;
 import com.cd.bookchange.view.fragment.Fragment_Myview;
+
+import java.util.Timer;
+import java.util.TimerTask;
 
 
 public class MainActivity extends FragmentActivity implements OnClickListener {
@@ -97,6 +102,33 @@ public class MainActivity extends FragmentActivity implements OnClickListener {
         imagebuttons[index].setSelected(true);
         textviews[index].setTextColor(0xFF45C01A);
         currentTabIndex = index;
+    }
+
+    private int keyBackClickCount = 0;
+
+    @Override
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
+        if (keyCode == KeyEvent.KEYCODE_BACK) {
+            switch (keyBackClickCount++) {
+                case 0:
+                    Toast.makeText(this, "再次按返回键退出", Toast.LENGTH_SHORT).show();
+                    Timer timer = new Timer();
+                    timer.schedule(new TimerTask() {
+                        @Override
+                        public void run() {
+                            keyBackClickCount = 0;
+                        }
+                    }, 3000);
+                    break;
+                case 1:
+                    App.getInstance2().exit();
+                    finish();
+                    overridePendingTransition(R.anim.push_up_in, R.anim.push_up_out);
+                    break;
+            }
+            return true;
+        }
+        return super.onKeyDown(keyCode, event);
     }
 
     @Override
