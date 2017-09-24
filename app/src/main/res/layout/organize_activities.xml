@@ -7,7 +7,7 @@
     <include layout="@layout/title_back"/>
 
     <LinearLayout
-        android:layout_width="wrap_content"
+        android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
         android:orientation="vertical">
@@ -24,18 +24,67 @@
             android:background="#ffc0c3c4" />
 
         <LinearLayout
-            android:id="@+id/activities_time"
+            android:id="@+id/activities_date"
             android:layout_width="match_parent"
             android:layout_height="46dp"
-            android:clickable="true"
             android:background="@drawable/layout_login_selector"
+            android:clickable="true"
             android:orientation="horizontal">
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="fill_parent"
-                android:gravity="center_vertical"
                 android:focusable="false"
+                android:gravity="center_vertical"
+                android:paddingLeft="20dp"
+                android:text="交流会日期"
+                android:textColor="@android:color/black"
+                android:textSize="17sp" />
+
+            <TextView
+                android:id="@+id/activities_view_date"
+                android:layout_width="wrap_content"
+                android:layout_height="fill_parent"
+                android:layout_weight="1"
+                android:focusable="false"
+                android:gravity="center_vertical|right"
+                android:paddingRight="15dip"
+                android:text="日期："
+                android:textColor="#ffc0c3c4"
+                android:textSize="16sp" />
+        </LinearLayout>
+
+        <View
+            android:layout_width="fill_parent"
+            android:layout_height="1.0px"
+            android:layout_marginLeft="1.0px"
+            android:layout_marginRight="1.0px"
+            android:background="#ffc0c3c4" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="10dp" />
+
+        <View
+            android:layout_width="fill_parent"
+            android:layout_height="1.0px"
+            android:layout_marginLeft="1.0px"
+            android:layout_marginRight="1.0px"
+            android:background="#ffc0c3c4" />
+
+        <LinearLayout
+            android:id="@+id/activities_time"
+            android:layout_width="match_parent"
+            android:layout_height="46dp"
+            android:background="@drawable/layout_login_selector"
+            android:clickable="true"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="fill_parent"
+                android:focusable="false"
+                android:gravity="center_vertical"
                 android:paddingLeft="20dp"
                 android:text="交流会时间"
                 android:textColor="@android:color/black"
@@ -45,11 +94,11 @@
                 android:id="@+id/activities_view_time"
                 android:layout_width="wrap_content"
                 android:layout_height="fill_parent"
-                android:gravity="center_vertical|right"
-                android:focusable="false"
                 android:layout_weight="1"
-                android:text="时间："
+                android:focusable="false"
+                android:gravity="center_vertical|right"
                 android:paddingRight="15dip"
+                android:text="时间："
                 android:textColor="#ffc0c3c4"
                 android:textSize="16sp" />
         </LinearLayout>
@@ -76,15 +125,15 @@
             android:id="@+id/activities_address"
             android:layout_width="match_parent"
             android:layout_height="46dp"
-            android:clickable="true"
             android:background="@drawable/layout_login_selector"
+            android:clickable="true"
             android:orientation="horizontal">
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="fill_parent"
-                android:gravity="center_vertical"
                 android:focusable="false"
+                android:gravity="center_vertical"
                 android:paddingLeft="20dp"
                 android:text="交流会地点"
                 android:textColor="@android:color/black"
@@ -94,11 +143,11 @@
                 android:id="@+id/activities_view_address"
                 android:layout_width="wrap_content"
                 android:layout_height="fill_parent"
-                android:gravity="center_vertical|right"
-                android:focusable="false"
                 android:layout_weight="1"
-                android:text="地点："
+                android:focusable="false"
+                android:gravity="center_vertical|right"
                 android:paddingRight="15dip"
+                android:text="地点："
                 android:textColor="#ffc0c3c4"
                 android:textSize="16sp" />
         </LinearLayout>
@@ -120,6 +169,7 @@
             android:layout_marginLeft="1.0px"
             android:layout_marginRight="1.0px"
             android:background="#ffc0c3c4" />
+
         <RelativeLayout
             android:layout_width="fill_parent"
             android:layout_height="46dp"
@@ -129,8 +179,8 @@
                 android:id="@+id/copy_activitie_name"
                 android:layout_width="wrap_content"
                 android:layout_height="fill_parent"
-                android:gravity="center"
                 android:layout_alignParentLeft="true"
+                android:gravity="center"
                 android:paddingLeft="20dp"
                 android:text="交流会名称："
                 android:textColor="@android:color/black"
@@ -140,15 +190,16 @@
                 android:id="@+id/activitie_name"
                 android:layout_width="fill_parent"
                 android:layout_height="fill_parent"
-                android:gravity="center_vertical"
                 android:layout_marginLeft="20dp"
                 android:layout_toRightOf="@+id/copy_activitie_name"
                 android:background="@null"
+                android:gravity="center_vertical"
                 android:hint="填写本次线下读书交流会名称"
+                android:imeOptions="actionDone"
                 android:inputType="text"
-                android:textSize="15sp"
-                android:imeOptions="actionDone"/>
+                android:textSize="15sp" />
         </RelativeLayout>
+
         <View
             android:layout_width="fill_parent"
             android:layout_height="1.0px"
@@ -166,6 +217,7 @@
             android:layout_marginLeft="1.0px"
             android:layout_marginRight="1.0px"
             android:background="#ffc0c3c4" />
+
         <RelativeLayout
             android:layout_width="fill_parent"
             android:layout_height="100dip"
@@ -176,8 +228,8 @@
                 android:id="@+id/copy_activitie_context"
                 android:layout_width="wrap_content"
                 android:layout_height="46dip"
-                android:gravity="center_vertical"
                 android:layout_alignParentLeft="true"
+                android:gravity="center_vertical"
                 android:paddingLeft="20dp"
                 android:text="内容概要："
                 android:textColor="@android:color/black"
@@ -187,21 +239,34 @@
                 android:id="@+id/activitie_context"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
-                android:gravity="center_vertical"
                 android:layout_marginLeft="10dip"
                 android:layout_toRightOf="@+id/copy_activitie_context"
-                android:textCursorDrawable="@null"
-                android:hint="请填写本次交流会内容概要"
+                android:gravity="center_vertical"
+                android:hint="填写内容概要（要包括详细地点)"
                 android:inputType="textMultiLine"
+                android:textCursorDrawable="@null"
                 android:textSize="15sp" />
 
         </RelativeLayout>
+
         <View
             android:layout_width="fill_parent"
             android:layout_height="1.0px"
             android:layout_marginLeft="1.0px"
             android:layout_marginRight="1.0px"
             android:background="#ffc0c3c4" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="30dp" />
+
+        <Button
+            android:id="@+id/organize_send_button"
+            android:layout_width="wrap_content"
+            android:layout_height="40dip"
+            android:text="发布"
+            android:textColor="@android:color/white"
+            android:background="#3F51B5" />
 
     </LinearLayout>
 

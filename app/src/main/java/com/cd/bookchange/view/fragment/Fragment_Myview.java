@@ -1,11 +1,13 @@
 package com.cd.bookchange.view.fragment;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.cd.bookchange.R;
@@ -23,17 +25,7 @@ public class Fragment_Myview extends Fragment implements View.OnClickListener {
     private Activity ctx;
     private View layout;
     private TextView tvname, tv_introduction;
-    String str_name,str_introduction;
-
-    @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-            str_name = getArguments().getString("str_mynickname");
-            str_introduction = getArguments().getString("str_myintroduction");
-        }
-    }
-
+    private ImageView iv_photo;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -42,7 +34,6 @@ public class Fragment_Myview extends Fragment implements View.OnClickListener {
             ctx = this.getActivity();
             layout = ctx.getLayoutInflater().inflate(R.layout.my_info, null);
             setOnListener();
-            initViews();
         } else {
             ViewGroup parent = (ViewGroup) layout.getParent();
             if(parent != null) {
@@ -55,13 +46,16 @@ public class Fragment_Myview extends Fragment implements View.OnClickListener {
     //增加监听器
     private void setOnListener() {
         layout.findViewById(R.id.new_message).setOnClickListener(this);
-        layout.findViewById(R.id.my_photo).setOnClickListener(this);
+        layout.findViewById(R.id.my_photo_button).setOnClickListener(this);
         layout.findViewById(R.id.complet_info).setOnClickListener(this);
         layout.findViewById(R.id.complet_bookname).setOnClickListener(this);
         layout.findViewById(R.id.my_reading).setOnClickListener(this);
         layout.findViewById(R.id.setting_button).setOnClickListener(this);
         layout.findViewById(R.id.customer_service).setOnClickListener(this);
         layout.findViewById(R.id.about_us).setOnClickListener(this);
+        iv_photo = (ImageView) layout.findViewById(R.id.my_photo);
+        tvname = (TextView) layout.findViewById(R.id.my_nickname);
+        tv_introduction = (TextView) layout.findViewById(R.id.my_introduction);
     }
 
     @Override
@@ -70,8 +64,9 @@ public class Fragment_Myview extends Fragment implements View.OnClickListener {
             case R.id.new_message:
                 Utils.showLongToast(getActivity(), "你还没有新的消息... ");
                 break;
-            case R.id.my_photo:
-                Utils.start_Activity(getActivity(), MyphotoActivity.class);
+            case R.id.my_photo_button:
+                Intent intent = new Intent(getActivity(), MyphotoActivity.class);
+                startActivityForResult(intent, 0);
                 break;
             case R.id.complet_info:
                 Utils.start_Activity(getActivity(), CompleteinfoActivity.class);
@@ -97,11 +92,11 @@ public class Fragment_Myview extends Fragment implements View.OnClickListener {
         }
     }
 
-    private void initViews() {
-        tvname = (TextView) layout.findViewById(R.id.my_nickname);
-        tv_introduction = (TextView) layout.findViewById(R.id.my_introduction);
-        //获取选中的地址
-        tvname.setText("昵称：" + str_name);
-        tv_introduction.setText("个性签名" + str_introduction);
+
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        tvname.setText("昵称：" + data.getStringExtra("str_mynickname")); //getString()返回指定key的值,并用TextView显示值
+        tv_introduction.setText("个性签名：" + data.getStringExtra("str_introduction"));
     }
 }

@@ -54,10 +54,12 @@
         android:orientation="vertical">
 
         <LinearLayout
+            android:id="@+id/my_photo_button"
             android:layout_width="fill_parent"
             android:layout_height="90dip"
+            android:clickable="true"
             android:orientation="horizontal"
-            android:background="@android:color/white">
+            android:background="@drawable/layout_login_selector">
 
             <ImageView
                 android:id="@+id/my_photo"
@@ -80,9 +82,10 @@
                     android:id="@+id/my_nickname"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="昵称"
-                    android:layout_gravity="center"
-                    android:textSize="15sp"/>
+                    android:text="昵称："
+                    android:layout_gravity="left"
+                    android:textSize="15sp"
+                    android:textColor="@android:color/black"/>
 
 
                 <TextView
@@ -90,8 +93,8 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dip"
-                    android:text="个性签名"
-                    android:layout_gravity="center"
+                    android:text="个性签名："
+                    android:layout_gravity="left"
                     android:textSize="15sp"/>
             </LinearLayout>
 
