@@ -13,7 +13,9 @@ import android.widget.Toast;
 import com.cd.bookchange.bean.Account;
 
 import cn.bmob.v3.Bmob;
+import cn.bmob.v3.BmobQuery;
 import cn.bmob.v3.exception.BmobException;
+import cn.bmob.v3.listener.CountListener;
 import cn.bmob.v3.listener.SaveListener;
 
 public class SecondActivity extends AppCompatActivity implements View.OnClickListener{
@@ -40,32 +42,44 @@ public class SecondActivity extends AppCompatActivity implements View.OnClickLis
 
     public void onClick(View v) {
 
-        Account account_one = new Account();
+        final Account account_one = new Account();
         switch (v.getId()) {
             case R.id.b_one:
-                String account = editTextone.getText().toString();
+                BmobQuery<Account> query=new BmobQuery<Account>();
+                final String account = editTextone.getText().toString();
                 String password = editTexttwo.getText().toString();
                 if (account.equals("")||password.equals("")){return;}
 
                 account_one.setAccount(account);
                 account_one.setPassword(password);
-                account_one.save(new SaveListener<String>() {
+                query.addWhereEqualTo("account",account);
+                query.count(Account.class, new CountListener() {
                     @Override
-                    public void done(String s, BmobException e) {
-                        if(e==null){
-                            Toast.makeText(getApplicationContext(), "注册成功！即将返回登陆界面", Toast.LENGTH_SHORT).show();
-                            new Handler().postDelayed(new Runnable() {
-                                public void run() {
-                                    Intent intent = new Intent(SecondActivity.this, FirstActivity.class);
-                                    SecondActivity.this.startActivity(intent);
-                                    SecondActivity.this.finish();
+                    public void done(Integer integer, BmobException e) {
+                        if (integer==0){
+                            account_one.save(new SaveListener<String>() {
+                                @Override
+                                public void done(String s, BmobException e) {
+                                    if(e==null){
+                                        Toast.makeText(getApplicationContext(), "注册成功！即将返回登陆界面", Toast.LENGTH_SHORT).show();
+                                        new Handler().postDelayed(new Runnable() {
+                                            public void run() {
+                                                Intent intent = new Intent(SecondActivity.this, FirstActivity.class);
+                                                SecondActivity.this.startActivity(intent);
+                                                SecondActivity.this.finish();
+                                            }
+                                        }, 1500);
+                                    }else{
+                                        Toast.makeText(getApplicationContext(), "注册失败！", Toast.LENGTH_SHORT).show();
+                                    }
                                 }
-                            }, 1500);
-                        }else{
-                            Toast.makeText(getApplicationContext(), "注册失败！", Toast.LENGTH_SHORT).show();
+                            });
                         }
+                        else {Toast.makeText(getApplicationContext(), "账号已存在！", Toast.LENGTH_SHORT).show();}
+
                     }
                 });
+
 
 
         }
