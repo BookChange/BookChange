@@ -62,6 +62,11 @@ public class Utils {
         return getSharedPreference(context).getString(key, "");
     }
 
+    public static final long getLongValue(Context context, String key,
+                                          long default_data) {
+        return getSharedPreference(context).getLong(key, default_data);
+    }
+
 
     /**
      * 设置SharedPreference 值

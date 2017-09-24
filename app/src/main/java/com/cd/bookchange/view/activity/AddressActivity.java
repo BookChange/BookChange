@@ -121,10 +121,10 @@ public class AddressActivity extends AddressBaseActivity implements View.OnClick
                 showSelectedResult();
 
                 //传递当前选中的数据
-                Intent intent = new Intent(AddressActivity.this, OrganizationActivity.class);
+                Intent intent = new Intent();
                 intent.putExtra("str", mCurrentProviceName+","+mCurrentCityName+","
                         +mCurrentDistrictName);  //给intent添加额外数据，key为“str”,value为选中的地址
-                startActivity(intent);
+                setResult(0, intent);  // 0表示成功
 
                 //设置1秒后自动关闭地址选择页面
                 Timer timer = new Timer();
@@ -134,7 +134,7 @@ public class AddressActivity extends AddressBaseActivity implements View.OnClick
                         Utils.finish(AddressActivity.this); //执行
                     }
                 };
-                timer.schedule(task, 1000 * 1);
+                timer.schedule(task, 500 * 1);  //0.5秒后结束页面
                 break;
             default:
                 break;

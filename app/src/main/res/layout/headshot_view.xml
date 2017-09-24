@@ -7,9 +7,8 @@
     <include layout="@layout/title_back"/>
 
     <LinearLayout
-        android:layout_width="wrap_content"
+        android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:gravity="center"
         android:orientation="vertical">
 
         <TextView
@@ -28,7 +27,6 @@
             android:layout_width="fill_parent"
             android:layout_height="46dp"
             android:gravity="center_vertical"
-            android:layout_alignParentLeft="true"
             android:paddingLeft="20dp"
             android:text="更换头像"
             android:textColor="@android:color/black"
@@ -134,6 +132,20 @@
             android:layout_marginLeft="1.0px"
             android:layout_marginRight="1.0px"
             android:background="#ffc0c3c4" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="30dp" />
+
+        <Button
+            android:id="@+id/change_headshot_save"
+            android:layout_width="wrap_content"
+            android:layout_height="40dip"
+            android:layout_gravity="center"
+            android:text="保存"
+            android:textColor="@android:color/white"
+            android:background="#3F51B5" />
+
 
     </LinearLayout>
 
