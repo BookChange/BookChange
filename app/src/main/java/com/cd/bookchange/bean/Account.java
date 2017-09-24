@@ -31,6 +31,7 @@ public class Account extends BmobObject{
     public void setPassword(String password) {
         this.password = password;
     }
+
     public String getId() {
         return id;
     }

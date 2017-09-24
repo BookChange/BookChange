@@ -126,6 +126,12 @@ public class AddressActivity extends AddressBaseActivity implements View.OnClick
                         +mCurrentDistrictName);  //给intent添加额外数据，key为“str”,value为选中的地址
                 setResult(0, intent);  // 0表示成功
 
+                //传递当前选中的数据
+                Intent intents = new Intent();
+                intents.putExtra("str", mCurrentProviceName+","+mCurrentCityName+","
+                        +mCurrentDistrictName);  //给intent添加额外数据，key为“str”,value为选中的地址
+                setResult(1, intents);  // 0表示成功
+
                 //设置1秒后自动关闭地址选择页面
                 Timer timer = new Timer();
                 TimerTask task = new TimerTask() {

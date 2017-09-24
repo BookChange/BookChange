@@ -53,7 +53,8 @@
             android:layout_marginLeft="10dp"
             android:layout_weight="1.0"
             android:background="#ffc0c3c4"
-            android:src="@drawable/f1"/>
+            android:scaleType="centerCrop"
+            android:src="@drawable/friend"/>
 
         <TextView
             android:id="@+id/friend_list_context"

@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.view.View.OnClickListener;
+import android.widget.TextView;
 
 import com.cd.bookchange.R;
 import com.cd.bookchange.common.Utils;
@@ -12,6 +13,7 @@ import com.cd.bookchange.view.BaseActivity;
 
 //设置
 public class SettingActivity extends BaseActivity implements OnClickListener{
+    private TextView tv_cache;
     @Override
     public void onCreate(Bundle savedInstanceState) {
         setContentView(R.layout.setting_view);
@@ -37,6 +39,10 @@ public class SettingActivity extends BaseActivity implements OnClickListener{
                 startActivity(new Intent(SettingActivity.this, AccountsecurityActivity.class));
                 overridePendingTransition(R.anim.push_up_in, R.anim.push_up_out);
                 break;
+            case R.id.wipe_cache:
+                tv_cache.setText("0KB");
+                Utils.showLongToast(context,"缓存已清除...");
+                break;
             default:
                 break;
         }
@@ -45,6 +51,7 @@ public class SettingActivity extends BaseActivity implements OnClickListener{
     @Override
     protected void initControl() {
         // TODO Auto-generated method stub
+        tv_cache = (TextView) findViewById(R.id.activity_wipe_cache);
 
     }
 

@@ -152,6 +152,7 @@
                  android:textSize="17sp" />
 
              <TextView
+                 android:id="@+id/activity_wipe_cache"
                  android:layout_width="wrap_content"
                  android:layout_height="fill_parent"
                  android:gravity="center_vertical|right"

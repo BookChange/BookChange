@@ -51,7 +51,8 @@
             android:layout_marginLeft="20dip"
             android:layout_gravity="center_vertical"
             android:background="#bfbfbf"
-            android:scaleType="centerCrop" />
+            android:scaleType="centerCrop"
+            android:src="@drawable/friend"/>
 
 
         <LinearLayout
@@ -65,8 +66,9 @@
                 android:id="@+id/friend_nickname"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="昵称"
-                android:layout_gravity="center"
+                android:text="昵称："
+                android:layout_gravity="left"
+                android:textColor="@android:color/black"
                 android:textSize="15sp"/>
 
 
@@ -74,9 +76,9 @@
                 android:id="@+id/friend_introduction"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="10dip"
-                android:text="个性签名"
-                android:layout_gravity="center"
+                android:layout_marginTop="15dip"
+                android:text="个性签名："
+                android:layout_gravity="left"
                 android:textSize="15sp"/>
 
         </LinearLayout>
@@ -136,7 +138,7 @@
         android:layout_gravity="center"
         android:gravity="center"
         android:text="发送消息"
-        android:textColor="@android:color/black"
+        android:textColor="@android:color/white"
         android:textSize="18sp"/>
 
 

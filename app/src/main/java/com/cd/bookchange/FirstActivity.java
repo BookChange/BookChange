@@ -1,16 +1,15 @@
 package com.cd.bookchange;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
-import android.view.Gravity;
 import android.view.View;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.Toast;
 
 import com.cd.bookchange.bean.Account;
@@ -63,6 +62,11 @@ public class FirstActivity extends AppCompatActivity implements View.OnClickList
 
         switch (v.getId()) {
             case R.id.b_one:
+                //点击登录关闭软键盘
+                InputMethodManager imm = (InputMethodManager)
+                        getSystemService(Context.INPUT_METHOD_SERVICE);
+                imm.hideSoftInputFromWindow(v.getWindowToken(), 0);
+
                 BmobQuery<Account> query=new BmobQuery<Account>();
                 final String a=editTextone.getText().toString();
                 final String b=editTexttwo.getText().toString();
@@ -88,7 +92,7 @@ public class FirstActivity extends AppCompatActivity implements View.OnClickList
                     @Override
                     public void done(List<Account> list, BmobException e) {
                         if(e==null){
-                                  for (Account account:list){
+                            for (Account account:list){
 
                                       if (b.equals(account.getPassword())){
                                           Toast.makeText(getApplication(),"登陆成功",Toast.LENGTH_SHORT).show();
@@ -114,9 +118,8 @@ public class FirstActivity extends AppCompatActivity implements View.OnClickList
                 FirstActivity.this.startActivity(intent);
                 break;
 
-
-
-
+            default:
+                break;
         }
     }
 

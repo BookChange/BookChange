@@ -92,7 +92,7 @@
                     android:id="@+id/my_introduction"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="10dip"
+                    android:layout_marginTop="15dip"
                     android:text="个性签名："
                     android:layout_gravity="left"
                     android:textSize="15sp"/>

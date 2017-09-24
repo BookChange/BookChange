@@ -239,17 +239,36 @@
             android:layout_marginRight="1.0px"
             android:background="#ffc0c3c4" />
 
-        <TextView
+        <LinearLayout
             android:id="@+id/select_age"
-            android:layout_width="fill_parent"
+            android:layout_width="match_parent"
             android:layout_height="46dp"
-            android:gravity="center_vertical"
-            android:layout_alignParentLeft="true"
-            android:paddingLeft="20.0dp"
-            android:text="年龄"
-            android:textColor="@android:color/black"
-            android:textSize="17sp"
-            android:background="@drawable/layout_login_selector"/>
+            android:background="@drawable/layout_login_selector"
+            android:clickable="true"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="fill_parent"
+                android:focusable="false"
+                android:gravity="center_vertical"
+                android:paddingLeft="20dp"
+                android:text="生日"
+                android:textColor="@android:color/black"
+                android:textSize="17sp" />
+
+            <TextView
+                android:id="@+id/activities_view_age"
+                android:layout_width="wrap_content"
+                android:layout_height="fill_parent"
+                android:layout_weight="1"
+                android:focusable="false"
+                android:gravity="center_vertical|right"
+                android:paddingRight="15dip"
+                android:text="年龄："
+                android:textColor="#ffc0c3c4"
+                android:textSize="16sp" />
+        </LinearLayout>
 
         <View
             android:layout_width="fill_parent"
@@ -269,18 +288,36 @@
             android:layout_marginRight="1.0px"
             android:background="#ffc0c3c4" />
 
-        <TextView
+        <LinearLayout
             android:id="@+id/select_address"
-            android:layout_width="fill_parent"
+            android:layout_width="match_parent"
             android:layout_height="46dp"
-            android:gravity="center_vertical"
-            android:layout_alignParentLeft="true"
-            android:paddingLeft="20.0dp"
-            android:text="地区"
-            android:textColor="@android:color/black"
-            android:textSize="17sp"
-            android:background="@drawable/layout_login_selector"/>
+            android:background="@drawable/layout_login_selector"
+            android:clickable="true"
+            android:orientation="horizontal">
 
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="fill_parent"
+                android:focusable="false"
+                android:gravity="center_vertical"
+                android:paddingLeft="20dp"
+                android:text="地区"
+                android:textColor="@android:color/black"
+                android:textSize="17sp" />
+
+            <TextView
+                android:id="@+id/activities_view_address"
+                android:layout_width="wrap_content"
+                android:layout_height="fill_parent"
+                android:layout_weight="1"
+                android:focusable="false"
+                android:gravity="center_vertical|right"
+                android:paddingRight="15dip"
+                android:text=""
+                android:textColor="#ffc0c3c4"
+                android:textSize="16sp" />
+        </LinearLayout>
         <View
             android:layout_width="fill_parent"
             android:layout_height="1.0px"
