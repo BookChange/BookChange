@@ -81,7 +81,7 @@ public class FirstActivity extends AppCompatActivity implements View.OnClickList
                         if(e==null){
                             if (integer==0){
                                 Toast.makeText(getApplicationContext(), "账号不存在！", Toast.LENGTH_SHORT).show();}
-                            bone.setText("登 录");
+                                bone.setText("登 录");
                         }else{
                             Log.i("bmob","失败："+e.getMessage()+","+e.getErrorCode());
                         }

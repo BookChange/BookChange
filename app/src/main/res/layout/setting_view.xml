@@ -135,7 +135,6 @@
              android:id="@+id/wipe_cache"
              android:layout_width="fill_parent"
              android:layout_height="46dp"
-             android:layout_gravity="center"
              android:clickable="true"
              android:background="@drawable/layout_login_selector"
              android:orientation="horizontal">

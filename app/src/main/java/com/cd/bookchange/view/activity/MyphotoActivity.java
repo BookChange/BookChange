@@ -3,7 +3,6 @@ package com.cd.bookchange.view.activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
-import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
 import android.widget.EditText;
@@ -16,7 +15,7 @@ import com.cd.bookchange.view.BaseActivity;
 
 public class MyphotoActivity extends BaseActivity implements View.OnClickListener,TextView.OnEditorActionListener {
     private TextView tvname, tv_introduction;
-
+    private String name;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -39,26 +38,15 @@ public class MyphotoActivity extends BaseActivity implements View.OnClickListene
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.back_button:
+                SaveAndReturn();
                 Utils.finish(MyphotoActivity.this);
                 break;
             case R.id.change_headshot_save:
-                String name = tvname.getText().toString();
+                SaveAndReturn();
                 if (TextUtils.isEmpty(name)) {
                     Utils.showLongToast(MyphotoActivity.this, "请填写您的昵称！ ");
                     return;
                 }
-                tvname.setText(name);
-                String introduction = tv_introduction.getText().toString();
-                tv_introduction.setText(introduction);
-//                Log.e("TAG_", "昵称" + name);    //调试代码，判断nickname
-//                Log.e("TAG_", "个性签名"+introduction);  //调试代码，introduction
-
-                //传递当前选中的数据
-                Intent intent = new Intent();
-                intent.putExtra("str_mynickname", name);  //给intent添加额外数据，key为“str”,value为选中的地址
-                intent.putExtra("str_introduction", introduction);
-                setResult(0, intent);  // 0表示成功
-
                 Utils.finish(MyphotoActivity.this);
                 break;
             case R.id.change_nickname:
@@ -71,6 +59,18 @@ public class MyphotoActivity extends BaseActivity implements View.OnClickListene
         }
     }
 
+    private void SaveAndReturn(){
+        name = tvname.getText().toString();
+        tvname.setText(name);
+        String introduction = tv_introduction.getText().toString();
+        tv_introduction.setText(introduction);
+        //传递当前选中的数据
+        Intent intent = new Intent();
+        intent.putExtra("str_mynickname", name);  //给intent添加额外数据，key为“str”,value为选中的地址
+        intent.putExtra("str_introduction", introduction);
+        setResult(0, intent);  // 0表示成功
+    }
+
     @Override
     protected void initControl() {
 
@@ -78,7 +78,6 @@ public class MyphotoActivity extends BaseActivity implements View.OnClickListene
 
     @Override
     protected void initView() {
-        // TODO Auto-generated method stub
 
     }
 
@@ -97,4 +96,11 @@ public class MyphotoActivity extends BaseActivity implements View.OnClickListene
     public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
         return true;
     }
+
+    @Override
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
+        SaveAndReturn();
+        return super.onKeyDown(keyCode, event);
+    }
+
 }
