@@ -10,9 +10,7 @@
     <drawable name="layout_clr_pressed">#C0C0C0</drawable>
 
     <string name="register_name_digits">
-
-  ._0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLIMNOPQRSTUVWXYZ
-
-</string>
+        ._0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLIMNOPQRSTUVWXYZ
+    </string>
 
 </resources>

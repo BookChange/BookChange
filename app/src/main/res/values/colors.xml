@@ -4,4 +4,6 @@
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
     <color name="province_line_border">#C7C7C7</color>
-</resources>
+    <color name="tab_tv_nor">#000000</color>
+    <color name="tab_tv_sel">#3CB371</color>
+    </resources>

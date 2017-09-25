@@ -5,6 +5,7 @@ import android.view.View;
 
 import com.cd.bookchange.R;
 import com.cd.bookchange.common.Utils;
+import com.cd.bookchange.dialog.BooktypeDialog;
 import com.cd.bookchange.view.BaseActivity;
 
 public class CompletebooknameActivity extends BaseActivity implements View.OnClickListener {
@@ -36,6 +37,19 @@ public class CompletebooknameActivity extends BaseActivity implements View.OnCli
         switch (v.getId()) {
             case R.id.back_button:
                 Utils.finish(CompletebooknameActivity.this);
+                break;
+            case R.id.book_type:
+                BooktypeDialog dialog = new BooktypeDialog(CompletebooknameActivity.this,
+                                new BooktypeDialog.DataBackListener() {
+                                    @Override
+                                    public void getData(String[] data) {
+                                        String[] result = data; //定义String类型的result来存放用户选择的图书类型
+//                                        for(String s: result){
+//                                            Log.e("TAG_", s); //调试判断是否有值
+//                                        }
+                                    }
+                                });
+                        dialog.show();
                 break;
             default:
                 break;
