@@ -107,13 +107,13 @@ public class MainActivity extends FragmentActivity implements OnClickListener {
     private int keyBackClickCount = 0;
 
     @Override
-    public boolean onKeyDown(int keyCode, KeyEvent event) {
+    public boolean onKeyDown(int keyCode, KeyEvent event) { //再按一次就返回功能。
         if (keyCode == KeyEvent.KEYCODE_BACK) {
             switch (keyBackClickCount++) {
                 case 0:
                     Toast.makeText(this, "再次按返回键退出", Toast.LENGTH_SHORT).show();
                     Timer timer = new Timer();
-                    timer.schedule(new TimerTask() {
+                    timer.schedule(new TimerTask() {  //不在三秒内点击就归零
                         @Override
                         public void run() {
                             keyBackClickCount = 0;
@@ -123,7 +123,7 @@ public class MainActivity extends FragmentActivity implements OnClickListener {
                 case 1:
                     App.getInstance2().exit();
                     finish();
-                    overridePendingTransition(R.anim.push_up_in, R.anim.push_up_out);
+                    overridePendingTransition(R.anim.push_up_in,R.anim.push_up_out);
                     break;
             }
             return true;
