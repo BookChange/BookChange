@@ -116,7 +116,7 @@ public class Fragment_Discover extends Fragment implements OnClickListener {
                 }.start();
             }
         };
-        timer.schedule(task, 1420 * 1);  //1.5秒后结束显示
+        timer.schedule(task, 1065 * 1);  //1秒后结束显示
 
     }
 
