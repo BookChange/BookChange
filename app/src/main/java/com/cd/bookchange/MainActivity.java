@@ -1,9 +1,9 @@
 package com.cd.bookchange;
 
+import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentTransaction;
-import android.os.Bundle;
 import android.view.KeyEvent;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -36,6 +36,7 @@ public class MainActivity extends FragmentActivity implements OnClickListener {
         setContentView( R.layout.activity_main );
         App.getInstance2().addActivity(this);
         initTableView();
+
     }
 
     //初始化界面
@@ -135,4 +136,5 @@ public class MainActivity extends FragmentActivity implements OnClickListener {
     public void onClick(View v) {
 
     }
+
 }

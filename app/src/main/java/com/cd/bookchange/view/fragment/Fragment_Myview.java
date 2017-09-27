@@ -20,7 +20,6 @@ import com.cd.bookchange.view.activity.SettingActivity;
 
 /*  我的页面
  */
-
 public class Fragment_Myview extends Fragment implements View.OnClickListener {
     private Activity ctx;
     private View layout;
