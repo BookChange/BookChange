@@ -1,9 +1,11 @@
 package com.cd.bookchange;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentTransaction;
+import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -29,11 +31,15 @@ public class MainActivity extends FragmentActivity implements OnClickListener {
 
     private int index;  //底部状态栏的index
     private int currentTabIndex;// 当前fragment的index
+    String objectId;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView( R.layout.activity_main );
+        Intent intent=getIntent();
+        objectId=intent.getStringExtra("objectId");
+        Log.d("objectId","-----------"+objectId+"--------------");
         App.getInstance2().addActivity(this);
         initTableView();
 

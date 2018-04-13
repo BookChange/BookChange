@@ -92,10 +92,12 @@ public class FirstActivity extends AppCompatActivity implements View.OnClickList
                     public void done(List<Account> list, BmobException e) {
                         if(e==null){
                             for (Account account:list){
+
                                 if (b.equals(account.getPassword())){
                                     Toast.makeText(getApplication(),"登录成功",Toast.LENGTH_SHORT).show();
                                     bone.setText("正在登录...  ");
                                     Intent intent = new Intent(FirstActivity.this, MainActivity.class);
+                                    intent.putExtra("objectId",account.getObjectId());
                                     FirstActivity.this.startActivity(intent);
                                     Collector.finishAll();
                                 }
