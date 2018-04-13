@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.cd.bookchange">
+    package="com.app.bookchange">
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
@@ -16,40 +16,40 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".MainActivity"></activity>
-        <activity android:name=".ScreenActivity">
+        <activity android:name="com.app.bookchange.MainActivity"></activity>
+        <activity android:name="com.app.bookchange.ScreenActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".FirstActivity" />
-        <activity android:name=".SecondActivity" android:label="@string/act_two" />
+        <activity android:name="com.app.bookchange.FirstActivity" />
+        <activity android:name="com.app.bookchange.SecondActivity" android:label="@string/act_two" />
 
-         <activity android:name=".view.activity.MyphotoActivity" android:screenOrientation="portrait">
+         <activity android:name="com.app.bookchange.view.activity.MyphotoActivity" android:screenOrientation="portrait">
         </activity>
-         <activity android:name=".view.activity.CompleteinfoActivity" android:screenOrientation="portrait">
+         <activity android:name="com.app.bookchange.view.activity.CompleteinfoActivity" android:screenOrientation="portrait">
         </activity>
-         <activity android:name=".view.activity.CompletebooknameActivity" android:screenOrientation="portrait">
+         <activity android:name="com.app.bookchange.view.activity.CompletebooknameActivity" android:screenOrientation="portrait">
         </activity>
-         <activity android:name=".view.activity.BookfriendActivity" android:screenOrientation="portrait">
+         <activity android:name="com.app.bookchange.view.activity.BookfriendActivity" android:screenOrientation="portrait">
         </activity>
-         <activity android:name=".view.activity.SettingActivity" android:screenOrientation="portrait">
+         <activity android:name="com.app.bookchange.view.activity.SettingActivity" android:screenOrientation="portrait">
         </activity>
-         <activity android:name=".view.activity.CustomerserviceActivity" android:screenOrientation="portrait">
+         <activity android:name="com.app.bookchange.view.activity.CustomerserviceActivity" android:screenOrientation="portrait">
         </activity>
-         <activity android:name=".view.activity.AccountsecurityActivity" android:screenOrientation="portrait">
+         <activity android:name="com.app.bookchange.view.activity.AccountsecurityActivity" android:screenOrientation="portrait">
         </activity>
-         <activity android:name=".view.activity.ContactfriendActivity" android:screenOrientation="portrait">
+         <activity android:name="com.app.bookchange.view.activity.ContactfriendActivity" android:screenOrientation="portrait">
         </activity>
-         <activity android:name=".view.activity.SearchActivity" android:screenOrientation="portrait">
+         <activity android:name="com.app.bookchange.view.activity.SearchActivity" android:screenOrientation="portrait">
         </activity>
-         <activity android:name=".view.activity.OrganizationActivity" android:screenOrientation="portrait">
+         <activity android:name="com.app.bookchange.view.activity.OrganizationActivity" android:screenOrientation="portrait">
         </activity>
-         <activity android:name=".view.activity.AddressBaseActivity" android:screenOrientation="portrait">
+         <activity android:name="com.app.bookchange.view.activity.AddressBaseActivity" android:screenOrientation="portrait">
         </activity>
-         <activity android:name=".view.activity.AddressActivity" android:screenOrientation="portrait">
+         <activity android:name="com.app.bookchange.view.activity.AddressActivity" android:screenOrientation="portrait">
         </activity>
 
 

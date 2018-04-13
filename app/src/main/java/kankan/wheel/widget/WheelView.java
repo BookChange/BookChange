@@ -33,7 +33,7 @@ import android.view.ViewGroup.LayoutParams;
 import android.view.animation.Interpolator;
 import android.widget.LinearLayout;
 
-import com.cd.bookchange.R;
+import com.app.bookchange.R;
 
 import java.util.LinkedList;
 import java.util.List;
@@ -774,7 +774,6 @@ public class WheelView extends View {
 
 	/**
 	 * Scroll the wheel
-	 * @param itemsToSkip items to scroll
 	 * @param time scrolling duration
 	 */
 	public void scroll(int itemsToScroll, int time) {
