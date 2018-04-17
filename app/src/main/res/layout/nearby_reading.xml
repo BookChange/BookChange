@@ -108,16 +108,6 @@
 
             </LinearLayout>
 
-            <include layout="@layout/copy_nearby_reading"/>
-            <include layout="@layout/copy_nearby_reading"/>
-            <include layout="@layout/copy_nearby_reading"/>
-            <include layout="@layout/copy_nearby_reading"/>
-            <include layout="@layout/copy_nearby_reading"/>
-            <include layout="@layout/copy_nearby_reading"/>
-            <include layout="@layout/copy_nearby_reading"/>
-            <include layout="@layout/copy_nearby_reading"/>
-            <include layout="@layout/copy_nearby_reading"/>
-
         </LinearLayout>
     </ScrollView>
 
