@@ -1,6 +1,7 @@
 package com.app.bookchange;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
@@ -11,9 +12,12 @@ import android.view.KeyEvent;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.ImageView;
+
+
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.app.bookchange.bean.Account;
 import com.app.bookchange.view.fragment.Fragment_Discover;
 import com.app.bookchange.view.fragment.Fragment_Forum;
 import com.app.bookchange.view.fragment.Fragment_Myview;
@@ -21,11 +25,15 @@ import com.app.bookchange.view.fragment.Fragment_Myview;
 import java.util.Timer;
 import java.util.TimerTask;
 
+import cn.bmob.v3.BmobQuery;
+import cn.bmob.v3.exception.BmobException;
+import cn.bmob.v3.listener.QueryListener;
+
+
 
 public class MainActivity extends FragmentActivity implements OnClickListener {
     private ImageView imagebuttons_one,imagebuttons_two,imagebuttons_three;
     private TextView textviews_one,textviews_two,textviews_three;
-
 
     String objectId;
 
@@ -36,6 +44,7 @@ public class MainActivity extends FragmentActivity implements OnClickListener {
         Intent intent=getIntent();
         objectId=intent.getStringExtra("objectId");
         Log.d("objectId","-----------"+objectId+"--------------");
+
 
         imagebuttons_one= (ImageView) findViewById(R.id.ib_forum);
         textviews_one= (TextView) findViewById(R.id.tv_forum);
@@ -48,12 +57,19 @@ public class MainActivity extends FragmentActivity implements OnClickListener {
         imagebuttons_one.setSelected(true);
         textviews_one.setTextColor(0xFF45C01A);
 
-        replaceFragment(new Fragment_Forum());
-
-
+        FragmentManager fragmentManager=getSupportFragmentManager();
+        FragmentTransaction transaction=fragmentManager.beginTransaction();
+        transaction.add(R.id.fragment_container,new Fragment_Forum());
+        transaction.commit();
 
     }
 
+    @Override
+    protected void onStart() {
+        super.onStart();
+        //更新
+        upData();
+    }
 
     //获取当前页面的index
     public void onTabClicked(View view) {
@@ -82,7 +98,13 @@ public class MainActivity extends FragmentActivity implements OnClickListener {
 
                 break;
             case R.id.btm_my:
-               replaceFragment(new Fragment_Myview());
+
+                Fragment_Myview my=new Fragment_Myview();
+                Bundle bundle=new Bundle();
+                bundle.putString("objectId",objectId);
+                my.setArguments(bundle);
+
+                replaceFragment(my);
 
                 imagebuttons_two.setSelected(false);
                 textviews_two.setTextColor(0xFF999999);
@@ -91,6 +113,7 @@ public class MainActivity extends FragmentActivity implements OnClickListener {
 
                 imagebuttons_three.setSelected(true);
                 textviews_three.setTextColor(0xFF45C01A);
+
 
                 break;
         }
@@ -135,9 +158,64 @@ public class MainActivity extends FragmentActivity implements OnClickListener {
         transaction.commit();
 
     }
+
+
     @Override
     public void onClick(View v) {
 
     }
+
+
+        //更新数据
+    public void upData(){
+        Log.d("Mainactivity","-------------本地updata开始------------");
+        BmobQuery<Account> query=new BmobQuery<Account>();
+        query.getObject(objectId, new QueryListener<Account>() {
+
+            @Override
+            public void done(Account object, BmobException e) {
+                if(e==null){
+                    //存储到本地
+                    saveMsg(object);
+                    //发送完成
+                    sendBroadcast();
+                    Log.d("Mainactivity","-------------本地updata开始------------");
+                }else {
+
+                }
+            }
+
+        });
+    }
+
+
+    //存储数据到本地
+    private void saveMsg(Account account){
+
+
+
+        SharedPreferences.Editor editor=getSharedPreferences(account.getObjectId()
+                ,MODE_PRIVATE).edit();
+        editor.putString("object",account.getObjectId());
+        editor.putString("name",account.getName());
+        editor.putString("signature",account.getSignature());
+        editor.putString("account",account.getAccount());
+        editor.apply();
+
+        Log.d("Mainactivity","-----------------------"+account.getObjectId());
+        Log.d("Mainactivity","------------saveMsg-----------");
+
+    }
+
+
+    private void sendBroadcast(){
+        Intent intent=new Intent("saveSuccess");
+        sendBroadcast(intent);
+        Log.d("Mainactivity","------------发送广播-----------");
+    }
+
+
+
+
 
 }

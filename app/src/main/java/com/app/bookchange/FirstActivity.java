@@ -2,6 +2,7 @@ package com.app.bookchange;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
@@ -96,6 +97,7 @@ public class FirstActivity extends AppCompatActivity implements View.OnClickList
                                 if (b.equals(account.getPassword())){
                                     Toast.makeText(getApplication(),"登录成功",Toast.LENGTH_SHORT).show();
                                     bone.setText("正在登录...  ");
+
                                     Intent intent = new Intent(FirstActivity.this, MainActivity.class);
                                     intent.putExtra("objectId",account.getObjectId());
                                     FirstActivity.this.startActivity(intent);
@@ -128,4 +130,6 @@ public class FirstActivity extends AppCompatActivity implements View.OnClickList
         super.onDestroy();
         Collector.removeActivity(this);
     }
+
+
 }

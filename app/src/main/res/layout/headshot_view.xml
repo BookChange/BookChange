@@ -51,7 +51,7 @@
             android:layout_marginRight="1.0px"
             android:background="#ffc0c3c4" />
 
-        <RelativeLayout
+        <LinearLayout
             android:layout_width="fill_parent"
             android:layout_height="46dp"
             android:background="@android:color/white">
@@ -69,17 +69,10 @@
 
             <EditText
                 android:id="@+id/change_nickname"
-                android:layout_width="fill_parent"
-                android:layout_height="fill_parent"
-                android:layout_marginLeft="30dp"
-                android:layout_toRightOf="@+id/copy_my_nickname"
-                android:background="@null"
-                android:gravity="center_vertical"
-                android:hint="原来的昵称，点击可变更"
-                android:imeOptions="actionDone"
-                android:inputType="text"
-                android:textSize="17sp" />
-        </RelativeLayout>
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                 />
+        </LinearLayout>
 
         <View
             android:layout_width="fill_parent"
@@ -99,7 +92,7 @@
             android:layout_marginRight="1.0px"
             android:background="#ffc0c3c4" />
 
-        <RelativeLayout
+        <LinearLayout
             android:layout_width="fill_parent"
             android:layout_height="100dip"
             android:background="@android:color/white">
@@ -118,17 +111,12 @@
 
             <EditText
                 android:id="@+id/change_introduction"
-                android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="10dip"
-                android:layout_toRightOf="@+id/copy_introduction"
-                android:gravity="center_vertical"
-                android:inputType="textMultiLine"
-                android:textCursorDrawable="@null"
-                android:textSize="17sp" />
+                android:layout_width="match_parent"
+                 />
 
 
-        </RelativeLayout>
+        </LinearLayout>
 
         <View
             android:layout_width="fill_parent"
@@ -142,7 +130,7 @@
             android:layout_height="30dp" />
 
         <Button
-            android:id="@+id/change_headshot_save"
+            android:id="@+id/change_save"
             android:layout_width="wrap_content"
             android:layout_height="40dip"
             android:layout_gravity="center"

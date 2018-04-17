@@ -78,15 +78,29 @@
                 android:layout_gravity="center_vertical"
                 android:layout_marginLeft="15dip">
 
-                <TextView
-                    android:id="@+id/my_nickname"
+                <LinearLayout
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="8dip"
-                    android:text="昵称："
-                    android:layout_gravity="left"
-                    android:textSize="15sp"
-                    android:textColor="@android:color/black"/>
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:id="@+id/my_nickname"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dip"
+                        android:text="昵称："
+                        android:layout_gravity="left"
+                        android:textSize="15sp"
+                        android:textColor="@android:color/black"/>
+
+                    <TextView
+                        android:id="@+id/account_name"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        />
+
+                </LinearLayout>
+
+
 
 
                 <TextView

@@ -11,9 +11,8 @@ public class Account extends BmobObject{
 
     private String account;//账号
     private String password;//密码
-    private String id;//昵称
     private BmobFile icon;//头像
-    private String name;//名字
+    private String name;//昵称
     private String signature;// 个性签名
 
     public String getName() {
@@ -62,11 +61,4 @@ public class Account extends BmobObject{
         this.password = password;
     }
 
-    public String getId() {
-        return id;
-    }
-
-    public void setId(String id) {
-        this.id = id;
-    }
 }
