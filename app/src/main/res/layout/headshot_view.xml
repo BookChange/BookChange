@@ -11,9 +11,11 @@
         android:layout_height="wrap_content"
         android:orientation="vertical">
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="20dp" />
+        <ImageView
+            android:id="@+id/image_head"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_gravity="center"/>
 
         <View
             android:layout_width="fill_parent"
