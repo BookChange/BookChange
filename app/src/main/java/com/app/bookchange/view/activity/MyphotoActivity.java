@@ -1,6 +1,7 @@
 package com.app.bookchange.view.activity;
 
 import android.Manifest;
+import android.annotation.TargetApi;
 import android.content.ContentUris;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -220,12 +221,13 @@ public class MyphotoActivity extends BaseActivity implements View.OnClickListene
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         switch (requestCode){
             case CHOOSE_PHOTO:
-
+                handleImageOnKitKat(data);
 
         }
     }
 
-    @RequiresApi(api = Build.VERSION_CODES.KITKAT)
+
+    @TargetApi(Build.VERSION_CODES.KITKAT)
     private void handleImageOnKitKat(Intent data){
         String imagePath = null;
         Uri uri = data.getData();
