@@ -24,9 +24,7 @@ public class Fragment_Discover extends Fragment implements OnClickListener {
     private Activity ctx;
     private View layout;
     private TextView tv1,tv2;
-    private TextView tv3,tv4;
     private SimpleDraweeView sdv1,sdv2;
-    private SimpleDraweeView sdv3,sdv4;
 
 
     private Handler handler=null;
@@ -63,16 +61,6 @@ public class Fragment_Discover extends Fragment implements OnClickListener {
         Uri uri2 = Uri.parse("android.resource://com.cd.bookchange/"+ R.drawable.discover_girl);
         sdv2.setImageURI(uri2);
 
-        tv3 = (TextView)layout.findViewById(R.id.copy_nearby_reading_tv);
-        tv4 = (TextView)layout.findViewById(R.id.copy_nearby_reading_tv2);
-        layout.findViewById(R.id.copy_nearby_reading_iv).setOnClickListener(this);
-        layout.findViewById(R.id.copy_nearby_reading_iv2).setOnClickListener(this);
-        sdv3 = (SimpleDraweeView) layout.findViewById(R.id.copy_nearby_reading_iv);
-        Uri uri3 = Uri.parse("android.resource://com.cd.bookchange/"+ R.drawable.discover_man);
-        sdv3.setImageURI(uri3);
-        sdv4 = (SimpleDraweeView) layout.findViewById(R.id.copy_nearby_reading_iv2);
-        Uri uri4 = Uri.parse("android.resource://com.cd.bookchange/"+ R.drawable.discover_girl1);
-        sdv4.setImageURI(uri4);
     }
 
 
@@ -84,22 +72,6 @@ public class Fragment_Discover extends Fragment implements OnClickListener {
                 tv1.setText("《" + "玉女心经" + "》");
                 Destroy();
                 break;
-            case R.id.nearby_reading_iv2:
-                tv2.setVisibility(View.VISIBLE);
-                tv2.setText("《" + "金瓶梅" + "》");
-                Destroy();
-                break;
-            case R.id.copy_nearby_reading_iv:
-                tv3.setVisibility(View.VISIBLE);
-                tv3.setText("《" + "黄帝内经" + "》");
-                Destroy();
-                break;
-            case R.id.copy_nearby_reading_iv2:
-                tv4.setVisibility(View.VISIBLE);
-                tv4.setText("《" + "这个世界会好吗" + "》");
-                Destroy();
-                break;
-
         }
     }
 
@@ -126,8 +98,6 @@ public class Fragment_Discover extends Fragment implements OnClickListener {
             //更新界面
             tv1.setVisibility(View.INVISIBLE);
             tv2.setVisibility(View.INVISIBLE);
-            tv3.setVisibility(View.INVISIBLE);
-            tv4.setVisibility(View.INVISIBLE);
         }
     };
 
