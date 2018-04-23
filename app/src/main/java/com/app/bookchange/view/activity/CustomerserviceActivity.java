@@ -37,25 +37,21 @@ public class CustomerserviceActivity extends BaseActivity implements View.OnClic
 
     @Override
     protected void initControl() {
-        // TODO Auto-generated method stub
 
     }
 
     @Override
     protected void initView() {
-        // TODO Auto-generated method stub
 
     }
 
     @Override
     protected void initData() {
-        // TODO Auto-generated method stub
 
     }
 
     @Override
     protected void setListener() {
-        // TODO Auto-generated method stub
 
     }
 }

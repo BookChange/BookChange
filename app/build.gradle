@@ -1,11 +1,40 @@
 apply plugin: 'com.android.application'
 
+repositories {
+    flatDir {
+        dir 'libs'
+    }
+}
+
 android {
     compileSdkVersion 25
     buildToolsVersion '26.0.2'
     useLibrary 'org.apache.http.legacy'
+
+    signingConfigs {
+        // your debug keystore
+        debug {
+            storeFile file("../debug.keystore")
+            keyPassword 'chendeng1226'
+            storePassword 'chendeng1226'
+            keyAlias 'androiddebugkey'
+        }
+    }
+
+    sourceSets {
+        main {
+            jniLibs.srcDir 'libs'
+            jni.srcDirs = []
+        }
+
+        instrumentTest.setRoot('tests')
+        debug.setRoot('build-types/debug')
+        release.setRoot('build-types/release')
+    }
+
+
     defaultConfig {
-        applicationId "com.cd.bookchange"
+        applicationId "com.app.bookchange"
         minSdkVersion 15
         targetSdkVersion 25
         versionCode 1
@@ -17,6 +46,9 @@ android {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
+        debug {
+            signingConfig signingConfigs.debug
+        }
     }
 }
 
@@ -26,10 +58,11 @@ dependencies {
     androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
-    compile 'com.android.support:appcompat-v7:25.3.1'
+    compile 'com.android.support:appcompat-v7:25.1.0'
     compile 'com.android.support.constraint:constraint-layout:1.0.0-alpha7'
     testCompile 'junit:junit:4.12'
     compile files('libs/JsonUtils.jar')
+    compile files('libs/BaiduLBS_Android.jar')
     compile 'cn.bmob.android:bmob-sdk:3.5.5'
     compile 'cn.bmob.android:bmob-push:0.8'
     compile 'cn.bmob.android:bmob-im:2.0.5@aar'

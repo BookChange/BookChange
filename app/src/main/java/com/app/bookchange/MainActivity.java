@@ -21,6 +21,12 @@ import com.app.bookchange.bean.Account;
 import com.app.bookchange.view.fragment.Fragment_Discover;
 import com.app.bookchange.view.fragment.Fragment_Forum;
 import com.app.bookchange.view.fragment.Fragment_Myview;
+import com.baidu.location.BDLocation;
+import com.baidu.location.BDLocationListener;
+import com.baidu.mapapi.map.MapStatus;
+import com.baidu.mapapi.map.MapStatusUpdateFactory;
+import com.baidu.mapapi.map.MyLocationData;
+import com.baidu.mapapi.model.LatLng;
 
 import java.util.Timer;
 import java.util.TimerTask;
@@ -54,12 +60,12 @@ public class MainActivity extends FragmentActivity implements OnClickListener {
         textviews_three= (TextView) findViewById(R.id.tv_my);
 
 
-        imagebuttons_one.setSelected(true);
-        textviews_one.setTextColor(0xFF45C01A);
+        imagebuttons_two.setSelected(true);
+        textviews_two.setTextColor(0xFF45C01A);
 
         FragmentManager fragmentManager=getSupportFragmentManager();
         FragmentTransaction transaction=fragmentManager.beginTransaction();
-        transaction.add(R.id.fragment_container,new Fragment_Forum());
+        transaction.add(R.id.fragment_container,new Fragment_Discover());
         transaction.commit();
 
     }
@@ -213,9 +219,5 @@ public class MainActivity extends FragmentActivity implements OnClickListener {
         sendBroadcast(intent);
         Log.d("Mainactivity","------------发送广播-----------");
     }
-
-
-
-
 
 }

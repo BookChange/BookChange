@@ -72,7 +72,7 @@
                 android:layout_below="@id/ib_find"
                 android:layout_centerHorizontal="true"
                 android:layout_marginTop="3dp"
-                android:text="发现"
+                android:text="借书"
                 android:textColor="#9A9A9A"
                 android:textSize="12sp" />
 

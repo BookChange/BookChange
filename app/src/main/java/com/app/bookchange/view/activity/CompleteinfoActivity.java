@@ -78,26 +78,22 @@ public class CompleteinfoActivity extends BaseActivity implements OnClickListene
 
     @Override
     protected void initControl() {
-        // TODO Auto-generated method stub
         tv_age = (TextView)findViewById(R.id.activities_view_age);
         tv_address = (TextView)findViewById(R.id.activities_view_address);
     }
 
     @Override
     protected void initView() {
-        // TODO Auto-generated method stub
 
     }
 
     @Override
     protected void initData() {
-        // TODO Auto-generated method stub
 
     }
 
     @Override
     protected void setListener() {
-        // TODO Auto-generated method stub
 
     }
 }

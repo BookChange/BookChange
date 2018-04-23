@@ -106,7 +106,6 @@ public class MyphotoActivity extends BaseActivity implements View.OnClickListene
 
     @Override
     protected void setListener() {
-        // TODO Auto-generated method stub
 
     }
 
