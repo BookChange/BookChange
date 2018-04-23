@@ -6,6 +6,8 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.content.SharedPreferences;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.util.Log;
@@ -14,6 +16,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 
 import com.app.bookchange.R;
@@ -38,7 +41,7 @@ public class Fragment_Myview extends Fragment implements View.OnClickListener {
     private TextView tv_name,tv_signature;
     public static final int UPDATE=1;
     public static final int NOUPDATE=0;
-
+    private String imageFilename;
     private  IntentFilter intentFilter;
     private  saveSuccessReceiver saveSuccessReceiver;
 
@@ -54,9 +57,12 @@ public class Fragment_Myview extends Fragment implements View.OnClickListener {
         Bundle bundle=getArguments();
         if (bundle!=null){
             objectId=bundle.getString("objectId");
-            Log.d("objectId","----Fragmentmyview----"+objectId+"------------");
+            imageFilename=bundle.getString("imageFilename");
+            Log.d("objectId","----Fragmentmyview----"+objectId+"------------"
+                    +imageFilename);
         }
         receiveBrocast();
+
         return layout;
     }
 
@@ -64,6 +70,7 @@ public class Fragment_Myview extends Fragment implements View.OnClickListener {
     public void onResume() {
         super.onResume();
         sendBroadcast();
+
     }
 
     //增加监听器
@@ -124,7 +131,9 @@ public class Fragment_Myview extends Fragment implements View.OnClickListener {
                , MODE_PRIVATE);
        name=sharedPreferences.getString("name","");
        signature=sharedPreferences.getString("signature","");
-       Log.d("Fragment_myview","-----getMsg----"+name+"--------"+signature+"--------");
+       imageFilename=sharedPreferences.getString("imagePath","");
+       Log.d("Fragment_myview","-----getMsg----"+name+"--------"+signature+"--------"
+       +imageFilename);
     }
 
 
@@ -134,6 +143,7 @@ public class Fragment_Myview extends Fragment implements View.OnClickListener {
             getMsg();
             tv_name.setText(name);
             tv_signature.setText(signature);
+            displayImage(imageFilename);
             Log.d("Fragment_myview","-----------setText----------");
             Log.d("Fragment_myview","-----------收到广播----------");
 
@@ -161,5 +171,14 @@ public class Fragment_Myview extends Fragment implements View.OnClickListener {
         super.onDestroy();
         getActivity().unregisterReceiver(saveSuccessReceiver);
 
+    }
+
+    private void displayImage(String imagePath) {
+        if (imagePath != null) {
+            Bitmap bitmap = BitmapFactory.decodeFile(imagePath);
+            iv_photo.setImageBitmap(bitmap);
+        } else {
+            Toast.makeText(getContext(), "failed to get image", Toast.LENGTH_SHORT).show();
+        }
     }
 }

@@ -23,6 +23,10 @@
     <!-- OpenGLES 2.0 -->
     <uses-feature android:glEsVersion="0x00020000" android:required="true" />
 
+
+    <!--保持CPU 运转，屏幕和键盘灯有可能是关闭的,用于文件上传和下载 -->
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+
     <application
         android:name="com.app.bookchange.MapApplication"
         android:allowBackup="true"

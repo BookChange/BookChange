@@ -7,33 +7,49 @@ import cn.bmob.v3.BmobObject;
  */
 
 public class MyBook extends BmobObject {
-    private Integer booknumber;
-    private String bookkind;
-    private String favbook;
+   private String accountId;
+   private String bookname;
+   private String bookstyle;
+   private String bookautor;
+   private boolean sign;
 
-    public Integer getBooknumber() {
-        return booknumber;
+    public String getAccountId() {
+        return accountId;
     }
 
-    public void setBooknumber(Integer booknumber) {
-        this.booknumber = booknumber;
+    public void setAccountId(String accountId) {
+        this.accountId = accountId;
     }
 
-    public String getBookkind() {
-        return bookkind;
+    public String getBookname() {
+        return bookname;
     }
 
-    public void setBookkind(String bookkind) {
-        this.bookkind = bookkind;
+    public void setBookname(String bookname) {
+        this.bookname = bookname;
     }
 
-    public String getFavbook() {
-        return favbook;
+    public String getBookstyle() {
+        return bookstyle;
     }
 
-    public void setFavbook(String favbook) {
-        this.favbook = favbook;
+    public void setBookstyle(String bookstyle) {
+        this.bookstyle = bookstyle;
     }
 
+    public String getBookautor() {
+        return bookautor;
+    }
 
+    public void setBookautor(String bookautor) {
+        this.bookautor = bookautor;
+    }
+
+    public boolean isSign() {
+        return sign;
+    }
+
+    public void setSign(boolean sign) {
+        this.sign = sign;
+    }
 }
