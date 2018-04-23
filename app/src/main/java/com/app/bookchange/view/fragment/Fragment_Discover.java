@@ -224,7 +224,7 @@ public class Fragment_Discover extends Fragment implements OnClickListener,Senso
 
     private void getAllMarkerDate(){
         List<LocationBean> list = new ArrayList<LocationBean>();
-        /*执行DAO层，BookDAO.getAllBook(list);
+        /*TODO 执行DAO层，BookDAO.getAllBook(list);
         *数据库执行查询，拿到location表中所有的位置信息,填入list
         * 连表查询，只有该UserId的书未被借出时才显示气泡
         * "select book.id , book.userid, book.name, book.author, book.style, book.loan" +

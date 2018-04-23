@@ -11,7 +11,6 @@ public class LocationBean implements Serializable{
     private LatLng latlng;
     private String myloctionmessage;
 
-
     private MyBook book;
 
     public int getUserid() {
