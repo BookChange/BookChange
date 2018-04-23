@@ -68,8 +68,7 @@
                 android:layout_marginLeft="20dip"
                 android:layout_gravity="center_vertical"
                 android:background="@android:color/transparent"
-                android:scaleType="centerCrop"
-                android:src="@drawable/f1"/>
+                android:scaleType="centerCrop" />
 
             <LinearLayout
                 android:orientation="vertical"
