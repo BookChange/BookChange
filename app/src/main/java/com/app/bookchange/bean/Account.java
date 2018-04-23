@@ -11,6 +11,7 @@ public class Account extends BmobObject{
 
     private String account;//账号
     private String password;//密码
+    private String sex;// 性别: M男士，W女士
     private BmobFile icon;//头像
     private String name;//昵称
     private String signature;// 个性签名
@@ -39,7 +40,7 @@ public class Account extends BmobObject{
         this.sex = sex;
     }
 
-    private String sex;// 性别: M男士，W女士
+
 
 
 
@@ -59,6 +60,14 @@ public class Account extends BmobObject{
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public BmobFile getIcon() {
+        return icon;
+    }
+
+    public void setIcon(BmobFile icon) {
+        this.icon = icon;
     }
 
 }

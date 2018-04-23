@@ -15,7 +15,6 @@ import android.os.Bundle;
 import android.provider.DocumentsContract;
 import android.provider.MediaStore;
 import android.support.annotation.NonNull;
-import android.support.annotation.RequiresApi;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
 import android.text.TextUtils;
@@ -33,8 +32,13 @@ import com.app.bookchange.common.Utils;
 import com.app.bookchange.view.BaseActivity;
 
 
+import java.io.File;
+
+
+import cn.bmob.v3.datatype.BmobFile;
 import cn.bmob.v3.exception.BmobException;
 import cn.bmob.v3.listener.UpdateListener;
+import cn.bmob.v3.listener.UploadFileListener;
 
 
 public class MyphotoActivity extends BaseActivity implements View.OnClickListener,TextView.OnEditorActionListener {
@@ -45,6 +49,7 @@ public class MyphotoActivity extends BaseActivity implements View.OnClickListene
     public  static final int CHOOSE_PHOTO=2;
 
     private ImageView picture;
+    String imagePath;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -60,6 +65,7 @@ public class MyphotoActivity extends BaseActivity implements View.OnClickListene
         tvname.setText(name);
         tvsignature.setText(signature);
         Log.d("MyphotoActivity","---------------setText----------------");
+        displayImage(imagePath);
 
 
     }
@@ -92,6 +98,8 @@ public class MyphotoActivity extends BaseActivity implements View.OnClickListene
                 }
 
                 changeMsg();
+                Toast.makeText(MyphotoActivity.this
+                        , "请等待，正在上传资料......", Toast.LENGTH_LONG).show();
 
 
                 break;
@@ -160,6 +168,7 @@ public class MyphotoActivity extends BaseActivity implements View.OnClickListene
                         public void done(BmobException e) {
 
                             if(e==null){
+
                                 Log.d("MyphotoActivivty","-----updata-----"+object.getName());
                             }else{
                             }
@@ -172,7 +181,7 @@ public class MyphotoActivity extends BaseActivity implements View.OnClickListene
                         public void done(BmobException e) {
                             if(e==null){
                                 Log.d("MyphotoActivivty","------服务器updata完成------");
-                                Return();
+
 
                             }else{
 
@@ -180,6 +189,8 @@ public class MyphotoActivity extends BaseActivity implements View.OnClickListene
                         }
                     });
 
+
+                    upImage(object,imagePath);
 
 
     }
@@ -190,7 +201,9 @@ public class MyphotoActivity extends BaseActivity implements View.OnClickListene
                 , MODE_PRIVATE);
         name=sharedPreferences.getString("name","");
         signature=sharedPreferences.getString("signature","");
-        Log.d("MyphotoActivivty","-----getMsg----"+name+"--------"+signature+"--------");
+        imagePath=sharedPreferences.getString("imagePath","");
+        Log.d("MyphotoActivivty","-----getMsg----"+name+"--------"+signature+"--------"
+        +imagePath);
     }
 
     private void openAlbum(){
@@ -229,7 +242,7 @@ public class MyphotoActivity extends BaseActivity implements View.OnClickListene
 
     @TargetApi(Build.VERSION_CODES.KITKAT)
     private void handleImageOnKitKat(Intent data){
-        String imagePath = null;
+        imagePath = null;
         Uri uri = data.getData();
         Log.d("TAG", "handleImageOnKitKat: uri is " + uri);
         if (DocumentsContract.isDocumentUri(this, uri)) {
@@ -250,7 +263,9 @@ public class MyphotoActivity extends BaseActivity implements View.OnClickListene
             // 如果是file类型的Uri，直接获取图片路径即可
             imagePath = uri.getPath();
         }
-        displayImage(imagePath); // 根据图片路径显示图片
+        displayImage(imagePath);
+        Log.d("MyphotoActivity","-----------imagePath-----------"+imagePath);
+        // 根据图片路径显示图片
     }
 
     private String getImagePath(Uri uri, String selection) {
@@ -273,5 +288,38 @@ public class MyphotoActivity extends BaseActivity implements View.OnClickListene
         } else {
             Toast.makeText(this, "failed to get image", Toast.LENGTH_SHORT).show();
         }
+    }
+
+    private void upImage(final Account account, String picPath){
+        final BmobFile bmobFile = new BmobFile(new File(picPath));
+        bmobFile.uploadblock(new UploadFileListener() {
+
+            @Override
+            public void done(BmobException e) {
+                if(e==null){
+
+                    account.setIcon(bmobFile);
+                    account.update(objectId, new UpdateListener() {
+                        @Override
+                        public void done(BmobException e) {
+
+                            Return();
+
+                        }
+                    });
+                    Log.d("Myphotoactivity","-----------------------"+account.getObjectId());
+                    //bmobFile.getFileUrl()--返回的上传文件的完整地址
+                    Log.d("上传文件成功:" , bmobFile.getFileUrl());
+                }else{
+                    Log.d("上传文件失败：" , e.getMessage());
+                }
+
+            }
+
+            @Override
+            public void onProgress(Integer value) {
+                // 返回的上传进度（百分比）
+            }
+        });
     }
 }
