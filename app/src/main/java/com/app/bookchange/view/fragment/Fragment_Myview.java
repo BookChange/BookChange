@@ -57,9 +57,7 @@ public class Fragment_Myview extends Fragment implements View.OnClickListener {
         Bundle bundle=getArguments();
         if (bundle!=null){
             objectId=bundle.getString("objectId");
-            imageFilename=bundle.getString("imageFilename");
-            Log.d("objectId","----Fragmentmyview----"+objectId+"------------"
-                    +imageFilename);
+            Log.d("objectId","----Fragmentmyview----"+objectId+"------------");
         }
         receiveBrocast();
 

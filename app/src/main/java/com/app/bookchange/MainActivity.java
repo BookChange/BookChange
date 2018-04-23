@@ -3,6 +3,7 @@ package com.app.bookchange;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.os.Environment;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
@@ -21,18 +22,15 @@ import com.app.bookchange.bean.Account;
 import com.app.bookchange.view.fragment.Fragment_Discover;
 import com.app.bookchange.view.fragment.Fragment_Forum;
 import com.app.bookchange.view.fragment.Fragment_Myview;
-import com.baidu.location.BDLocation;
-import com.baidu.location.BDLocationListener;
-import com.baidu.mapapi.map.MapStatus;
-import com.baidu.mapapi.map.MapStatusUpdateFactory;
-import com.baidu.mapapi.map.MyLocationData;
-import com.baidu.mapapi.model.LatLng;
 
+import java.io.File;
 import java.util.Timer;
 import java.util.TimerTask;
 
 import cn.bmob.v3.BmobQuery;
+import cn.bmob.v3.datatype.BmobFile;
 import cn.bmob.v3.exception.BmobException;
+import cn.bmob.v3.listener.DownloadFileListener;
 import cn.bmob.v3.listener.QueryListener;
 
 
@@ -181,10 +179,11 @@ public class MainActivity extends FragmentActivity implements OnClickListener {
             @Override
             public void done(Account object, BmobException e) {
                 if(e==null){
+                    BmobFile file=object.getIcon();
+                    downloadFile(file);
                     //存储到本地
                     saveMsg(object);
                     //发送完成
-                    sendBroadcast();
                     Log.d("Mainactivity","-------------本地updata开始------------");
                 }else {
 
@@ -218,6 +217,38 @@ public class MainActivity extends FragmentActivity implements OnClickListener {
         Intent intent=new Intent("saveSuccess");
         sendBroadcast(intent);
         Log.d("Mainactivity","------------发送广播-----------");
+    }
+
+    private void downloadFile(BmobFile file){
+        //允许设置下载文件的存储路径，默认下载文件的目录为：context.getApplicationContext().getCacheDir()+"/bmob/"
+        File saveFile = new File(Environment.getExternalStorageDirectory(), file.getFilename());
+        file.download(saveFile, new DownloadFileListener() {
+
+            @Override
+            public void onStart() {
+               Log.d("file","开始下载...");
+            }
+
+            @Override
+            public void done(String savePath,BmobException e) {
+                if(e==null){
+                    SharedPreferences.Editor editor=getSharedPreferences(objectId
+                            ,MODE_PRIVATE).edit();
+                    editor.putString("imagePath",savePath);
+                    editor.apply();
+                    Log.d("file","下载成功,保存路径:"+savePath);
+                    sendBroadcast();
+                }else{
+                    Log.d("file","下载失败："+e.getErrorCode()+","+e.getMessage());
+                }
+            }
+
+            @Override
+            public void onProgress(Integer value, long newworkSpeed) {
+                Log.i("bmob","下载进度："+value+","+newworkSpeed);
+            }
+
+        });
     }
 
 }
