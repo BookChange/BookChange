@@ -11,7 +11,7 @@ public class MyBook extends BmobObject {
    private String bookname;
    private String bookstyle;
    private String bookautor;
-   private boolean sign;    //1表示已借出，0表示未借出
+   private boolean sign;
 
     public String getAccountId() {
         return accountId;
