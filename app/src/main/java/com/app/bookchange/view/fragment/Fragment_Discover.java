@@ -218,8 +218,8 @@ public class Fragment_Discover extends Fragment implements OnClickListener,Senso
         holder = (InfoWindowHolder) baidumap_infowindow.getTag ();
 
         holder.tv_location.setText ("我的位置："+ bean.getMyloctionmessage ());
-        holder.tv_bookname.setText ("书名：" + bean.getBook().getBookkind());
-        holder.tv_author.setText ("作者：" + bean.getBook().getFavbook());
+        holder.tv_bookname.setText ("书名：" + bean.getBook().getBookname());
+        holder.tv_author.setText ("作者：" + bean.getBook().getBookautor());
     }
 
     private void getAllMarkerDate(){
@@ -236,8 +236,8 @@ public class Fragment_Discover extends Fragment implements OnClickListener,Senso
         //下面构建list做测试
         LocationBean bean = new LocationBean();
         MyBook book1 = new MyBook();
-        book1.setBookkind("金瓶梅词话");
-        book1.setFavbook("兰陵笑笑生");
+        book1.setBookname("金瓶梅词话");
+        book1.setBookautor("兰陵笑笑生");
         bean.setUserid(2);
         bean.setLat(19.992174);
         bean.setLng(110.54059);
@@ -247,8 +247,8 @@ public class Fragment_Discover extends Fragment implements OnClickListener,Senso
 
         LocationBean bean2 = new LocationBean ();
         MyBook book2 = new MyBook();
-        book2.setBookkind("水浒传");
-        book2.setFavbook("施耐庵");
+        book2.setBookname("水浒传");
+        book2.setBookautor("施耐庵");
         bean2.setUserid(4);
         bean2.setLat(19.982174);
         bean2.setLng(110.53059);
