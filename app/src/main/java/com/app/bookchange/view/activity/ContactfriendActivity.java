@@ -40,25 +40,21 @@ public class ContactfriendActivity extends BaseActivity implements View.OnClickL
 
     @Override
     protected void initControl() {
-        // TODO Auto-generated method stub
 
     }
 
     @Override
     protected void initView() {
-        // TODO Auto-generated method stub
 
     }
 
     @Override
     protected void initData() {
-        // TODO Auto-generated method stub
 
     }
 
     @Override
     protected void setListener() {
-        // TODO Auto-generated method stub
 
     }
 }

@@ -144,7 +144,6 @@ public class MyphotoActivity extends BaseActivity implements View.OnClickListene
 
     @Override
     protected void setListener() {
-        // TODO Auto-generated method stub
 
     }
 
@@ -234,7 +233,7 @@ public class MyphotoActivity extends BaseActivity implements View.OnClickListene
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         switch (requestCode){
             case CHOOSE_PHOTO:
-                if (data==null)
+                 if (data==null)
                     break;
                 else handleImageOnKitKat(data);
                 break;

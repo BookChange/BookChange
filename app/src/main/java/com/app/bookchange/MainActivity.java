@@ -3,7 +3,6 @@ package com.app.bookchange;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.os.Environment;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
@@ -22,15 +21,18 @@ import com.app.bookchange.bean.Account;
 import com.app.bookchange.view.fragment.Fragment_Discover;
 import com.app.bookchange.view.fragment.Fragment_Forum;
 import com.app.bookchange.view.fragment.Fragment_Myview;
+import com.baidu.location.BDLocation;
+import com.baidu.location.BDLocationListener;
+import com.baidu.mapapi.map.MapStatus;
+import com.baidu.mapapi.map.MapStatusUpdateFactory;
+import com.baidu.mapapi.map.MyLocationData;
+import com.baidu.mapapi.model.LatLng;
 
-import java.io.File;
 import java.util.Timer;
 import java.util.TimerTask;
 
 import cn.bmob.v3.BmobQuery;
-import cn.bmob.v3.datatype.BmobFile;
 import cn.bmob.v3.exception.BmobException;
-import cn.bmob.v3.listener.DownloadFileListener;
 import cn.bmob.v3.listener.QueryListener;
 
 
@@ -40,7 +42,6 @@ public class MainActivity extends FragmentActivity implements OnClickListener {
     private TextView textviews_one,textviews_two,textviews_three;
 
     String objectId;
-    String imageFilename;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -59,12 +60,12 @@ public class MainActivity extends FragmentActivity implements OnClickListener {
         textviews_three= (TextView) findViewById(R.id.tv_my);
 
 
-        imagebuttons_one.setSelected(true);
-        textviews_one.setTextColor(0xFF45C01A);
+        imagebuttons_two.setSelected(true);
+        textviews_two.setTextColor(0xFF45C01A);
 
         FragmentManager fragmentManager=getSupportFragmentManager();
         FragmentTransaction transaction=fragmentManager.beginTransaction();
-        transaction.add(R.id.fragment_container,new Fragment_Forum());
+        transaction.add(R.id.fragment_container,new Fragment_Discover());
         transaction.commit();
 
     }
@@ -74,7 +75,6 @@ public class MainActivity extends FragmentActivity implements OnClickListener {
         super.onStart();
         //更新
         upData();
-
     }
 
     //获取当前页面的index
@@ -181,14 +181,10 @@ public class MainActivity extends FragmentActivity implements OnClickListener {
             @Override
             public void done(Account object, BmobException e) {
                 if(e==null){
-                    //头像下载到本地
-                    BmobFile bmobFile=object.getIcon();
-                    downloadFile(bmobFile);
                     //存储到本地
                     saveMsg(object);
                     //发送完成
-
-
+                    sendBroadcast();
                     Log.d("Mainactivity","-------------本地updata开始------------");
                 }else {
 
@@ -223,43 +219,5 @@ public class MainActivity extends FragmentActivity implements OnClickListener {
         sendBroadcast(intent);
         Log.d("Mainactivity","------------发送广播-----------");
     }
-
-    private void downloadFile(BmobFile file){
-
-        File saveFile = new File(Environment.getExternalStorageDirectory(), file.getFilename());
-        Log.d("Mainactivity","---------imageFilename---------"
-                +file.getFilename()+"---------------------"
-                +Environment.getExternalStorageDirectory()+"-------------"
-                +Environment.getExternalStorageDirectory()+file.getFilename());
-        file.download(saveFile, new DownloadFileListener() {
-
-            @Override
-            public void onStart() {
-                Log.d("TAG","开始下载头像");
-            }
-
-            @Override
-            public void done(String savePath,BmobException e) {
-                if(e==null){
-                    SharedPreferences.Editor editor=getSharedPreferences(objectId
-                            ,MODE_PRIVATE).edit();
-                    editor.putString("imagePath",savePath);
-                    editor.apply();
-                    sendBroadcast();
-                    Log.d("TAG","头像下载成功,保存路径:"+savePath);
-                }else{
-                    Log.d("TAG","头像下载失败");
-                }
-            }
-
-            @Override
-            public void onProgress(Integer value, long newworkSpeed) {
-                Log.i("bmob","下载进度："+value+","+newworkSpeed);
-            }
-
-        });
-    }
-
-
 
 }
