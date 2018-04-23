@@ -136,7 +136,7 @@ public class Fragment_Discover extends Fragment implements OnClickListener,Senso
             // 开启定位图层
             mBaiduMap.setMyLocationEnabled(true);
             // 定位初始化
-            mLocClient = new LocationClient(getApplicationContext());
+            mLocClient = new LocationClient(ctx.getApplicationContext());
             mLocClient.registerLocationListener((BDAbstractLocationListener) myListener);
             LocationClientOption option = new LocationClientOption();
             option.setOpenGps(true); // 打开gps
