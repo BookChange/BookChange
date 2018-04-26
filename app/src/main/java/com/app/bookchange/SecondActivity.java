@@ -13,6 +13,7 @@ import android.widget.Toast;
 
 import com.app.bookchange.bean.Account;
 import com.app.bookchange.bean.LocationBean;
+import com.app.bookchange.bean.MyBook;
 
 import cn.bmob.v3.Bmob;
 import cn.bmob.v3.BmobQuery;
@@ -59,11 +60,13 @@ public class SecondActivity extends AppCompatActivity implements View.OnClickLis
                     @Override
                     public void done(Integer integer, BmobException e) {
                         if (integer==0){
+                            button.setEnabled(false);
                             account_one.save(new SaveListener<String>() {
                                 @Override
                                 public void done(String s, BmobException e) {
                                     if(e==null){
                                         creatLocation(account_one);
+                                        creatMyBook(account_one);
                                         Toast.makeText(getApplicationContext(), "注册成功！即将返回登陆界面", Toast.LENGTH_SHORT).show();
                                         new Handler().postDelayed(new Runnable() {
                                             public void run() {
@@ -96,6 +99,18 @@ public class SecondActivity extends AppCompatActivity implements View.OnClickLis
         locationBean.setUserid(account.getObjectId());
         Log.d("注册页面","------account.getObjectId()-----"+account.getObjectId()+"---------");
         locationBean.save(new SaveListener<String>() {
+            @Override
+            public void done(String s, BmobException e) {
+
+            }
+        });
+    }
+
+
+    private  void creatMyBook(Account account){
+        MyBook myBook=new MyBook();
+        myBook.setAccountId(account.getObjectId());
+        myBook.save(new SaveListener<String>() {
             @Override
             public void done(String s, BmobException e) {
 

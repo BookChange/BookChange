@@ -65,8 +65,9 @@ public class MyphotoActivity extends BaseActivity implements View.OnClickListene
         tvname.setText(name);
         tvsignature.setText(signature);
         Log.d("MyphotoActivity","---------------setText----------------");
-        displayImage(imagePath);
-
+        if(imagePath!=null) {
+            displayImage(imagePath);
+        }
 
     }
 
@@ -162,6 +163,7 @@ public class MyphotoActivity extends BaseActivity implements View.OnClickListene
 
         final Account object=new Account();
                     object.setName(etname);
+                    object.setSignature(etsignature);
                     object.update(objectId, new UpdateListener() {
                         @Override
                         public void done(BmobException e) {
@@ -173,21 +175,6 @@ public class MyphotoActivity extends BaseActivity implements View.OnClickListene
                             }
                         }
                     });
-
-                    object.setSignature(etsignature);
-                    object.update(objectId, new UpdateListener() {
-                        @Override
-                        public void done(BmobException e) {
-                            if(e==null){
-                                Log.d("MyphotoActivivty","------服务器updata完成------");
-
-
-                            }else{
-
-                            }
-                        }
-                    });
-
 
                     upImage(object,imagePath);
 

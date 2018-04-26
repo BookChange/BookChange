@@ -402,6 +402,7 @@ public class Fragment_Discover extends Fragment implements OnClickListener,Senso
 
     private void getAround(){
        BmobQuery<LocationBean> queryone=new BmobQuery<LocationBean>();
+       queryone.addWhereNotEqualTo("userid",objectId);
         queryone.setLimit(25);
         queryone.findObjects(new FindListener<LocationBean>() {
             @Override
