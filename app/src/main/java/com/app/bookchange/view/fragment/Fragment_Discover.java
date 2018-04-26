@@ -1,14 +1,13 @@
 package com.app.bookchange.view.fragment;
 
 import android.app.Activity;
-import android.content.Intent;
 import android.hardware.Sensor;
 import android.hardware.SensorEvent;
 import android.hardware.SensorEventListener;
 import android.hardware.SensorManager;
-import android.opengl.ETC1;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -42,15 +41,17 @@ import com.baidu.mapapi.map.MarkerOptions;
 import com.baidu.mapapi.map.MyLocationConfiguration;
 import com.baidu.mapapi.map.MyLocationData;
 import com.baidu.mapapi.model.LatLng;
-import com.baidu.mapapi.model.LatLngBounds;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import cn.bmob.push.lib.util.LogUtil;
+import cn.bmob.v3.BmobQuery;
+import cn.bmob.v3.exception.BmobException;
+import cn.bmob.v3.listener.FindListener;
+import cn.bmob.v3.listener.UpdateListener;
+
 
 import static android.content.Context.SENSOR_SERVICE;
-import static cn.bmob.v3.Bmob.getApplicationContext;
 
 /*  发现页面
  */
@@ -74,6 +75,8 @@ public class Fragment_Discover extends Fragment implements OnClickListener,Senso
     String locationDescribe;
     String province,city,district,street;
 
+    private String objectId;
+
     MapView mMapView;
     BaiduMap mBaiduMap;
 
@@ -95,6 +98,7 @@ public class Fragment_Discover extends Fragment implements OnClickListener,Senso
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        getMsg();
         if (layout == null) {
             ctx = this.getActivity();
             layout = ctx.getLayoutInflater().inflate(R.layout.discover_fragment, null);
@@ -222,42 +226,6 @@ public class Fragment_Discover extends Fragment implements OnClickListener,Senso
         holder.tv_author.setText ("作者：" + bean.getBook().getBookautor());
     }
 
-    private void getAllMarkerDate(){
-        List<LocationBean> list = new ArrayList<LocationBean>();
-        /*TODO 执行DAO层，BookDAO.getAllBook(list);
-        *数据库执行查询，拿到location表中所有的位置信息,填入list
-        * 连表查询，只有该UserId的书未被借出时才显示气泡
-        * "select book.id , book.userid, book.name, book.author, book.style, book.loan" +
-                    " location.id lid, location.userid uid, location.lng, location.lat, location.myloctionmsg " +
-                    " from book join location on (book.userid = location.uid) where book.loan = 0";
-        *
-         */
-
-        //下面构建list做测试
-        LocationBean bean = new LocationBean();
-        MyBook book1 = new MyBook();
-        book1.setBookname("金瓶梅词话");
-        book1.setBookautor("兰陵笑笑生");
-        bean.setUserid(2);
-        bean.setLat(19.992174);
-        bean.setLng(110.54059);
-        bean.setMyloctionmessage("在美兰区金盘村附近");
-        bean.setBook(book1);
-        list.add (bean);
-
-        LocationBean bean2 = new LocationBean ();
-        MyBook book2 = new MyBook();
-        book2.setBookname("水浒传");
-        book2.setBookautor("施耐庵");
-        bean2.setUserid(4);
-        bean2.setLat(19.982174);
-        bean2.setLng(110.53059);
-        bean2.setMyloctionmessage("在美兰区东寨港大道附近");
-        bean2.setBook(book2);
-        list.add (bean2);
-
-        showData(list);
-    }
 
     private void showData(List<LocationBean> list){
         mBaiduMap.clear ();
@@ -296,7 +264,7 @@ public class Fragment_Discover extends Fragment implements OnClickListener,Senso
     @Override
     public void onStart(){
         super.onStart ();
-        getAllMarkerDate();
+        getAround();
     }
 
     @Override
@@ -343,17 +311,14 @@ public class Fragment_Discover extends Fragment implements OnClickListener,Senso
             city = location.getCity();    //获取城市
             district = location.getDistrict();    //获取区县
             street = location.getStreet();    //获取街道信息
-            locationDescribe = location.getLocationDescribe();    //获取位置描述信息
+            locationDescribe = location.getLocationDescribe();
+            //获取位置描述信息
             /*加载地图页面时启动BDAbstractLocationListener，拿到所有的位置信息
                     *拿到全局变量中的UserID
                     * 启用DAO层的UserDAO,将位置信息及userID存入location表中
-                    * TODO getUserID and updateLocation table
                      */
-            LatLng point1 = new LatLng(mCurrentLat, mCurrentLon);
-            String mylocationmsg = "我的位置："+city+district+locationDescribe;
-//            userid = APP.getSession().getUser.getId;    //拿到UserID
-//            UserDAO.updateLocation(userid, mCurrentLat, mCurrentLon, mylocationmsg);
-
+            String mylocationmsg = city+district+locationDescribe;
+            setLocation(mCurrentLon,mCurrentLat,mylocationmsg);
             locData = new MyLocationData.Builder()
                     .accuracy(location.getRadius())
                     // 此处设置开发者获取到的方向信息，顺时针0-360
@@ -407,5 +372,81 @@ public class Fragment_Discover extends Fragment implements OnClickListener,Senso
         mMapView.onDestroy();
         mMapView = null;
         super.onDestroy();
+    }
+
+    private void setLocation(final double lng, final double lat, final String mylocationmsg){
+
+        BmobQuery<LocationBean> query=new BmobQuery<LocationBean>();
+        query.addWhereEqualTo("userid",objectId);
+        Log.d("SET",objectId);
+        query.findObjects(new FindListener<LocationBean>() {
+            @Override
+            public void done(List<LocationBean> list, BmobException e) {
+                if (e==null){
+                    for (LocationBean locationBean:list){
+                        locationBean.setLng(lng);
+                        locationBean.setLat(lat);
+                        locationBean.setMyloctionmessage(mylocationmsg);
+                        locationBean.update(new UpdateListener() {
+                            @Override
+                            public void done(BmobException e) {
+
+                            }
+                        });
+                    }
+                }
+
+            }
+        });
+    }
+
+    private void getAround(){
+       BmobQuery<LocationBean> queryone=new BmobQuery<LocationBean>();
+        queryone.setLimit(25);
+        queryone.findObjects(new FindListener<LocationBean>() {
+            @Override
+            public void done(List<LocationBean> locationBeans, BmobException e) {
+
+                if (e==null) {
+                    for (LocationBean locationBean : locationBeans) {
+                        queryBook(locationBean);
+                    }
+                    showData(locationBeans);
+                }else {
+                    Log.i("bmob","失败："+e.getMessage()+","+e.getErrorCode());
+                }
+            }
+        });
+    }
+
+
+    private void queryBook(final LocationBean locationBean){
+        BmobQuery<MyBook> querytwo=new BmobQuery<MyBook>();
+        querytwo.addWhereEqualTo("accountId",locationBean.getUserid());
+        querytwo.findObjects(new FindListener<MyBook>() {
+            @Override
+            public void done(List<MyBook> myBooks, BmobException e) {
+                if (e==null) {
+                    for (MyBook myBook : myBooks) {
+                        locationBean.setBook(myBook);
+                        Log.d("set","setbook成功！");
+
+                    }
+                }
+            }
+        });
+
+    }
+
+
+    private void getMsg(){
+        Bundle bundle=getArguments();
+        if (bundle!=null){
+            objectId=bundle.getString("objectId");
+        }
+
+        Log.d("Fragment_Discover","--------------getMsg-------------"
+                +objectId+"------------");
+
     }
 }

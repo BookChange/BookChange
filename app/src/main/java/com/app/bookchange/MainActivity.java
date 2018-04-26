@@ -61,10 +61,12 @@ public class MainActivity extends FragmentActivity implements OnClickListener {
         imagebuttons_two.setSelected(true);
         textviews_two.setTextColor(0xFF45C01A);
 
-        FragmentManager fragmentManager=getSupportFragmentManager();
-        FragmentTransaction transaction=fragmentManager.beginTransaction();
-        transaction.add(R.id.fragment_container,new Fragment_Discover());
-        transaction.commit();
+
+        Fragment_Discover forum=new Fragment_Discover();
+        Bundle bundle2=new Bundle();
+        bundle2.putString("objectId",objectId);
+        forum.setArguments(bundle2);
+        replaceFragment(forum);
 
     }
 
@@ -79,7 +81,9 @@ public class MainActivity extends FragmentActivity implements OnClickListener {
     public void onTabClicked(View view) {
         switch (view.getId()) {
             case R.id.btm_forum:
-               replaceFragment(new Fragment_Forum());
+
+
+                replaceFragment(new Fragment_Forum());
 
                 imagebuttons_two.setSelected(false);
                 textviews_two.setTextColor(0xFF999999);
@@ -90,7 +94,11 @@ public class MainActivity extends FragmentActivity implements OnClickListener {
                 textviews_one.setTextColor(0xFF45C01A);
                 break;
             case R.id.btm_find:
-                replaceFragment(new Fragment_Discover());
+                Fragment_Discover forum=new Fragment_Discover();
+                Bundle bundle2=new Bundle();
+                bundle2.putString("objectId",objectId);
+                forum.setArguments(bundle2);
+                replaceFragment(forum);
 
                 imagebuttons_one.setSelected(false);
                 textviews_one.setTextColor(0xFF999999);

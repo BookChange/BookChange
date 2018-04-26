@@ -5,12 +5,14 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
 import com.app.bookchange.bean.Account;
+import com.app.bookchange.bean.LocationBean;
 
 import cn.bmob.v3.Bmob;
 import cn.bmob.v3.BmobQuery;
@@ -61,6 +63,7 @@ public class SecondActivity extends AppCompatActivity implements View.OnClickLis
                                 @Override
                                 public void done(String s, BmobException e) {
                                     if(e==null){
+                                        creatLocation(account_one);
                                         Toast.makeText(getApplicationContext(), "注册成功！即将返回登陆界面", Toast.LENGTH_SHORT).show();
                                         new Handler().postDelayed(new Runnable() {
                                             public void run() {
@@ -74,6 +77,7 @@ public class SecondActivity extends AppCompatActivity implements View.OnClickLis
                                     }
                                 }
                             });
+
                         }
                         else {Toast.makeText(getApplicationContext(), "账号已存在！", Toast.LENGTH_SHORT).show();}
 
@@ -84,6 +88,19 @@ public class SecondActivity extends AppCompatActivity implements View.OnClickLis
 
         }
 
+    }
+
+
+    private void creatLocation(Account account){
+        LocationBean locationBean=new LocationBean();
+        locationBean.setUserid(account.getObjectId());
+        Log.d("注册页面","------account.getObjectId()-----"+account.getObjectId()+"---------");
+        locationBean.save(new SaveListener<String>() {
+            @Override
+            public void done(String s, BmobException e) {
+
+            }
+        });
     }
 
 

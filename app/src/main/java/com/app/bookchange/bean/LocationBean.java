@@ -1,33 +1,25 @@
 package com.app.bookchange.bean;
 
-import com.baidu.mapapi.model.LatLng;
 
-import java.io.Serializable;
+import cn.bmob.v3.BmobObject;
 
-public class LocationBean implements Serializable{
-    private int id;
-    private int userid;
+public class LocationBean extends BmobObject{
+    private String userid;
     private double lng,lat;
-    private LatLng latlng;
     private String myloctionmessage;
+
+
 
     private MyBook book;
 
-    public int getUserid() {
+    public String getUserid() {
         return userid;
     }
 
-    public void setUserid(int userid) {
+    public void setUserid(String userid) {
         this.userid = userid;
     }
 
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
 
     public double getLng() {
         return lng;
@@ -45,13 +37,6 @@ public class LocationBean implements Serializable{
         this.lat = lat;
     }
 
-    public LatLng getLatlng() {
-        return latlng;
-    }
-
-    public void setLatlng(LatLng latlng) {
-        this.latlng = latlng;
-    }
 
     public String getMyloctionmessage() {
         return myloctionmessage;
