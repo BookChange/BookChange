@@ -49,6 +49,7 @@ public class SecondActivity extends AppCompatActivity implements View.OnClickLis
         switch (v.getId()) {
             case R.id.b_one:
                 button.setEnabled(false);
+                button.setText("正在注册");
                 BmobQuery<Account> query=new BmobQuery<Account>();
                 final String account = editTextone.getText().toString();
                 String password = editTexttwo.getText().toString();
