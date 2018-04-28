@@ -7,9 +7,6 @@ public class LocationBean extends BmobObject{
     private String userid;
     private double lng,lat;
     private String myloctionmessage;
-
-
-
     private MyBook book;
 
     public String getUserid() {

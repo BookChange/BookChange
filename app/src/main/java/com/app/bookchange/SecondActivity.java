@@ -48,6 +48,7 @@ public class SecondActivity extends AppCompatActivity implements View.OnClickLis
         final Account account_one = new Account();
         switch (v.getId()) {
             case R.id.b_one:
+                button.setEnabled(false);
                 BmobQuery<Account> query=new BmobQuery<Account>();
                 final String account = editTextone.getText().toString();
                 String password = editTexttwo.getText().toString();
@@ -60,7 +61,6 @@ public class SecondActivity extends AppCompatActivity implements View.OnClickLis
                     @Override
                     public void done(Integer integer, BmobException e) {
                         if (integer==0){
-                            button.setEnabled(false);
                             account_one.save(new SaveListener<String>() {
                                 @Override
                                 public void done(String s, BmobException e) {
@@ -110,6 +110,7 @@ public class SecondActivity extends AppCompatActivity implements View.OnClickLis
     private  void creatMyBook(Account account){
         MyBook myBook=new MyBook();
         myBook.setAccountId(account.getObjectId());
+        myBook.setSign(false);
         myBook.save(new SaveListener<String>() {
             @Override
             public void done(String s, BmobException e) {

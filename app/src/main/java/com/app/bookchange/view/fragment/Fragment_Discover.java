@@ -6,6 +6,8 @@ import android.hardware.SensorEvent;
 import android.hardware.SensorEventListener;
 import android.hardware.SensorManager;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Message;
 import android.support.v4.app.Fragment;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -264,6 +266,7 @@ public class Fragment_Discover extends Fragment implements OnClickListener,Senso
     @Override
     public void onStart(){
         super.onStart ();
+        bok=0;
         getAround();
     }
 
@@ -409,10 +412,14 @@ public class Fragment_Discover extends Fragment implements OnClickListener,Senso
             public void done(List<LocationBean> locationBeans, BmobException e) {
 
                 if (e==null) {
+                    loac=locationBeans.size();
+                    Log.d("i","-------"+loac);
                     for (LocationBean locationBean : locationBeans) {
                         queryBook(locationBean);
+
                     }
-                    showData(locationBeans);
+                    Log.d("set","show");
+
                 }else {
                     Log.i("bmob","失败："+e.getMessage()+","+e.getErrorCode());
                 }
@@ -429,14 +436,52 @@ public class Fragment_Discover extends Fragment implements OnClickListener,Senso
             public void done(List<MyBook> myBooks, BmobException e) {
                 if (e==null) {
                     for (MyBook myBook : myBooks) {
+                        bok=bok+1;
+                        Log.d("y","-------"+bok);
                         locationBean.setBook(myBook);
                         Log.d("set","setbook成功！");
 
+                        if (locationBean.getBook().isSign())
+                        {addList(locationBean);}}
+
+                        Log.d("卡壳","");
+                        if (bok==loac){
+                            Message message=new Message();
+                            message.what=SHOW;
+                            handler.sendMessage(message);
+                            Log.d("y","----------sendmsg---------");
+                        }
                     }
+
                 }
-            }
         });
 
+    }
+
+    List<LocationBean> list=new ArrayList<LocationBean>();
+    int loac=0;
+    int bok=0;
+    private static final int SHOW=1;
+    private Handler handler=new Handler(){
+        @Override
+        public void handleMessage(Message msg) {
+            switch (msg.what){
+                case SHOW:
+                    showData(list);
+                    Log.d("打印list",list.get(0).getBook().getBookname()
+                            +"----------------"+list.get(1).getBook().getBookname());
+                    break;
+                    default:
+                        break;
+            }
+        }
+    };
+
+
+    private void addList(LocationBean locationBean){
+        if (!locationBean.getBook().getBookname().isEmpty()){
+            list.add(locationBean);
+        }
     }
 
 
